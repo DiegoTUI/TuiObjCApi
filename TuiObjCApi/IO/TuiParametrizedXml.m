@@ -100,8 +100,9 @@
             [self xmlfyElementWithName:element andBody:[NSDictionary dictionary]];
         }
     }
-    //close tag. TODO: check this!!! Name might as well be nil!!!rr
-    _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, name];
+    //close tag. Only when the name is not nil.
+    if (name != nil)
+        _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, name];
 }
 
 @end
