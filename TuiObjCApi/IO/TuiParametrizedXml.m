@@ -30,7 +30,7 @@
 #pragma mark - Synthesized properties
 
 #pragma mark - Public methods
--(TuiParametrizedXml *) initWithDictionary:(NSDictionary *)parameters{
+-(TuiParametrizedXml *) initWithDictionary:(NSDictionary *)parameters {
     self = [super init];
     
     if (self){

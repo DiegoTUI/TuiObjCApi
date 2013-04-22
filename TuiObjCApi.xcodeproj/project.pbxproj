@@ -15,6 +15,8 @@
 		76671213171FF6C800474484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76671211171FF6C800474484 /* InfoPlist.strings */; };
 		766712231720021900474484 /* TuiParametrizedXml.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712221720021900474484 /* TuiParametrizedXml.m */; };
 		766712261721264700474484 /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
+		7667122A17213B3A00474484 /* NSString+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122917213B3A00474484 /* NSString+Tui.m */; };
+		7667122D172527FA00474484 /* NSString+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122917213B3A00474484 /* NSString+Tui.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		766712221720021900474484 /* TuiParametrizedXml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiParametrizedXml.m; path = IO/TuiParametrizedXml.m; sourceTree = "<group>"; };
 		766712241721264700474484 /* TuiParametrizedXmlTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiParametrizedXmlTests.h; sourceTree = "<group>"; };
 		766712251721264700474484 /* TuiParametrizedXmlTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiParametrizedXmlTests.m; sourceTree = "<group>"; };
+		7667122817213B3A00474484 /* NSString+Tui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Tui.h"; path = "Categories/NSString+Tui.h"; sourceTree = "<group>"; };
+		7667122917213B3A00474484 /* NSString+Tui.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Tui.m"; path = "Categories/NSString+Tui.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		766711F9171FF6C800474484 /* TuiObjCApi */ = {
 			isa = PBXGroup;
 			children = (
+				7667122717213AF000474484 /* Categories */,
 				766712201720016000474484 /* IO */,
 				766711FA171FF6C800474484 /* Supporting Files */,
 			);
@@ -151,6 +156,15 @@
 				766712221720021900474484 /* TuiParametrizedXml.m */,
 			);
 			name = IO;
+			sourceTree = "<group>";
+		};
+		7667122717213AF000474484 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7667122817213B3A00474484 /* NSString+Tui.h */,
+				7667122917213B3A00474484 /* NSString+Tui.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				766712231720021900474484 /* TuiParametrizedXml.m in Sources */,
+				7667122A17213B3A00474484 /* NSString+Tui.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				766712261721264700474484 /* TuiParametrizedXmlTests.m in Sources */,
+				7667122D172527FA00474484 /* NSString+Tui.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,17 @@
 
 #import "TuiParametrizedXmlTests.h"
 #import "TuiParametrizedXml.h"
+#import "NSString+Tui.h"
 
 @interface TuiParametrizedXmlTests ()
 
+//Creates a regular dictionary to be converted to xml
 -(NSDictionary *)regularJsonXml;
+//Creates a "list" dictionary to be converted to xml
 -(NSDictionary *)listJsonXml;
+//Checks that the keys and values of a given dictionary are in the provided xml string
+-(void)checkXmlString:(NSString *)xmlString
+       withDictionary:(NSDictionary *)dictionary;
 
 @end
 
@@ -30,14 +36,16 @@
 
 -(void)testRegularJson{
     TuiParametrizedXml *paramxml = [[TuiParametrizedXml alloc] initWithDictionary:[self regularJsonXml]];
-    NSLog(@"created xml: %@", [paramxml getXmlString]);
-    //TODO: Perform some light assertions on the produced string 
+    NSString *xmlstring = [paramxml getXmlString];
+    NSLog(@"created xml: %@", xmlstring);
+    [self checkXmlString:xmlstring withDictionary:[self regularJsonXml]];
 }
 
 -(void)testListJson{
     TuiParametrizedXml *paramxml = [[TuiParametrizedXml alloc] initWithDictionary:[self listJsonXml]];
-    NSLog(@"created xml: %@", [paramxml getXmlString]);
-    //TODO: Perform some light assertions on the produced string
+    NSString *xmlstring = [paramxml getXmlString];
+    NSLog(@"created xml: %@", xmlstring);
+    [self checkXmlString:xmlstring withDictionary:[self listJsonXml]];
 }
 
 #pragma mark - Private methods
@@ -88,6 +96,41 @@
                                      }
                              };
     return result;
+}
+
+-(void)checkXmlString:(NSString *)xmlString
+       withDictionary:(NSDictionary *)dictionary {
+    //go through the dictionary
+    for (NSString *key in dictionary) {
+        //attributes
+        if ([key hasPrefix:@"@"]) {
+            
+            STAssertTrue([xmlString containsString:[key substringFromIndex:1]], @"Attribute %@ was not found in xml: %@", [key substringFromIndex:1], xmlString);
+            STAssertTrue([xmlString containsString:dictionary[key]], @"Value %@ of attribute %@ was not found in xml: %@", dictionary[key], [key substringFromIndex:1], xmlString);
+        }
+        //value
+        else if ([key isEqualToString:@"#"]) {
+            STAssertTrue([xmlString containsString:dictionary[key]], @"Value %@ of attribute %@ was not found in xml: %@", dictionary[key], [key substringFromIndex:1], xmlString);
+        }
+        //element
+        else {
+            //if it's a dictionary
+            if ([dictionary[key] isKindOfClass:[NSDictionary class]]) {
+                [self checkXmlString:xmlString withDictionary:dictionary[key]];
+            }
+            //if it's an array
+            else if ([dictionary[key] isKindOfClass:[NSArray class]]) {
+                for (id item in dictionary[key]) {
+                    if ([item isKindOfClass:[NSDictionary class]]) {
+                        [self checkXmlString:xmlString withDictionary:item];
+                    }
+                    else {
+                        STFail(@"Malformed XML dictionary. Key %@ has an array of arrays in it: %@", key, dictionary);
+                    }
+                }
+            }
+        }
+    }
 }
 
 @end
