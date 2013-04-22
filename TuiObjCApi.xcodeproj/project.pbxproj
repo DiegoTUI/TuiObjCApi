@@ -17,6 +17,7 @@
 		766712261721264700474484 /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
 		7667122A17213B3A00474484 /* NSString+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122917213B3A00474484 /* NSString+Tui.m */; };
 		7667122D172527FA00474484 /* NSString+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122917213B3A00474484 /* NSString+Tui.m */; };
+		766712301725606200474484 /* TuiXmlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122F1725606200474484 /* TuiXmlManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		766712251721264700474484 /* TuiParametrizedXmlTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiParametrizedXmlTests.m; sourceTree = "<group>"; };
 		7667122817213B3A00474484 /* NSString+Tui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Tui.h"; path = "Categories/NSString+Tui.h"; sourceTree = "<group>"; };
 		7667122917213B3A00474484 /* NSString+Tui.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Tui.m"; path = "Categories/NSString+Tui.m"; sourceTree = "<group>"; };
+		7667122E1725606200474484 /* TuiXmlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiXmlManager.h; path = IO/TuiXmlManager.h; sourceTree = "<group>"; };
+		7667122F1725606200474484 /* TuiXmlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiXmlManager.m; path = IO/TuiXmlManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 			children = (
 				766712211720021900474484 /* TuiParametrizedXml.h */,
 				766712221720021900474484 /* TuiParametrizedXml.m */,
+				7667122E1725606200474484 /* TuiXmlManager.h */,
+				7667122F1725606200474484 /* TuiXmlManager.m */,
 			);
 			name = IO;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			files = (
 				766712231720021900474484 /* TuiParametrizedXml.m in Sources */,
 				7667122A17213B3A00474484 /* NSString+Tui.m in Sources */,
+				766712301725606200474484 /* TuiXmlManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

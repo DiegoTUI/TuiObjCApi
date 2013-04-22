@@ -12,13 +12,14 @@
 
 @interface TuiParametrizedXmlTests ()
 
-//Creates a regular dictionary to be converted to xml
--(NSDictionary *)regularJsonXml;
-//Creates a "list" dictionary to be converted to xml
--(NSDictionary *)listJsonXml;
+//Creates a regular base json string to be converted to xml
+-(NSString *)regularBaseJsonString;
+//Creates a "list" base json string to be converted to xml
+-(NSString *)listBaseJsonString;
 //Checks that the keys and values of a given dictionary are in the provided xml string
 -(void)checkXmlString:(NSString *)xmlString
-       withDictionary:(NSDictionary *)dictionary;
+         withBaseJson:(NSString *)baseJson
+       andDictionary:(NSDictionary *)dictionary;
 
 @end
 
@@ -35,100 +36,71 @@
 }
 
 -(void)testRegularJson{
-    TuiParametrizedXml *paramxml = [[TuiParametrizedXml alloc] initWithDictionary:[self regularJsonXml]];
+    TuiParametrizedXml *paramxml = [[TuiParametrizedXml alloc] initWithJsonString:[self regularBaseJsonString]];
+    NSDictionary *paramdict = @{@"echoToken":@"DummyEchoToken",
+                                @"xmlns":@"http://www.hotelbeds.com/schemas/2005/06/messages",
+                                @"xmlns:xsi":@"http://www.w3.org/2001/XMLSchema-instance",
+                                @"xsi:schemaLocation":@"http://www.hotelbeds.com/schemas/2005/06/messages HotelListRQ.xsd",
+                                @"Language":@"ENG",
+                                @"Credentials_User":@"ISLAS",
+                                @"Credentials_Password":@"ISLAS",
+                                @"Destination_code":@"PMI",
+                                @"Destination_type":@"SIMPLE",
+                                @"Destination":@"TEST",
+                                @"Destination_Name":@"Palma"
+                                };
+    [paramxml addKeysAndValuesFromDictionary:paramdict];
     NSString *xmlstring = [paramxml getXmlString];
     NSLog(@"created xml: %@", xmlstring);
-    [self checkXmlString:xmlstring withDictionary:[self regularJsonXml]];
+    [self checkXmlString:xmlstring
+            withBaseJson:[self regularBaseJsonString]
+           andDictionary:paramdict];
 }
 
 -(void)testListJson{
-    TuiParametrizedXml *paramxml = [[TuiParametrizedXml alloc] initWithDictionary:[self listJsonXml]];
+    TuiParametrizedXml *paramxml = [[TuiParametrizedXml alloc] initWithJsonString:[self listBaseJsonString]];
+    NSDictionary *paramdict = @{@"echoToken":@"DummyEchoToken",
+                                @"xmlns":@"http://www.hotelbeds.com/schemas/2005/06/messages",
+                                @"xmlns:xsi":@"http://www.w3.org/2001/XMLSchema-instance",
+                                @"xsi:schemaLocation":@"http://www.hotelbeds.com/schemas/2005/06/messages HotelListRQ.xsd",
+                                @"Language":@"ENG",
+                                @"Credentials_User":@"ISLAS",
+                                @"Credentials_Password":@"ISLAS",
+                                @"Destination_code":@"PMI",
+                                @"Destination_type":@"SIMPLE",
+                                @"Destination":@"TEST",
+                                @"Destination_Name":@"Palma",
+                                @"Zone_Name_1":@"Zone1",
+                                @"Zone_Name_2":@"Zone2",
+                                @"Zone_Name_3":@"Zone3"
+                                };
+    [paramxml addKeysAndValuesFromDictionary:paramdict];
     NSString *xmlstring = [paramxml getXmlString];
     NSLog(@"created xml: %@", xmlstring);
-    [self checkXmlString:xmlstring withDictionary:[self listJsonXml]];
+    [self checkXmlString:xmlstring
+            withBaseJson:[self listBaseJsonString]
+           andDictionary:paramdict];
 }
 
 #pragma mark - Private methods
--(NSDictionary *)regularJsonXml{
-    NSDictionary *result = @{@"HotelListRQ": @{
-                                     @"@echoToken":@"DummyEchoToken",
-                                     @"@xmlns":@"http://www.hotelbeds.com/schemas/2005/06/messages",
-                                     @"@xmlns:xsi":@"http://www.w3.org/2001/XMLSchema-instance",
-                                     @"@xsi:schemaLocation":@"http://www.hotelbeds.com/schemas/2005/06/messages HotelListRQ.xsd",
-                                     @"Language":@{@"#":@"ENG"},
-                                     @"Credentials":@{
-                                             @"User":@{@"#":@"ISLAS"},
-                                             @"Password":@{@"#":@"ISLAS"}
-                                             },
-                                     @"Destination":@{
-                                             @"@code":@"PMI",
-                                             @"@type":@"SIMPLE",
-                                             @"Name":@{@"#":@"Palma"},
-                                             @"#":@"Test"
-                                             }
-                                     }
-                             };
+-(NSString *)regularBaseJsonString {
+    NSString *result = @"{\"HotelListRQ\": {\"@echoToken\":\"$echoToken$\",\"@xmlns\":\"$xmlns$\",\"@xmlns:xsi\":\"$xmlns:xsi$\",\"@xsi:schemaLocation\":\"$xsi:schemaLocation$\",\"Language\":{\"#\":\"$Language$\"},\"Credentials\":{\"User\":{\"#\":\"$Credentials_User$\"},\"Password\":{\"#\":\"$Credentials_Password$\"}},\"Destination\":{\"@code\":\"Destination_code\",\"@type\":\"$Destination_type$\",\"Name\":{\"#\":\"$Destination_Name$\"},\"#\":\"$Destination$\"}}}";
     return result;
 }
 
--(NSDictionary *)listJsonXml{
-    NSDictionary *result = @{@"HotelListRQ": @{
-                                     @"@echoToken":@"DummyEchoToken",
-                                     @"@xmlns":@"http://www.hotelbeds.com/schemas/2005/06/messages",
-                                     @"@xmlns:xsi":@"http://www.w3.org/2001/XMLSchema-instance",
-                                     @"@xsi:schemaLocation":@"http://www.hotelbeds.com/schemas/2005/06/messages HotelListRQ.xsd",
-                                     @"Language":@{@"#":@"ENG"},
-                                     @"Credentials":@{
-                                             @"User":@{@"#":@"ISLAS"},
-                                             @"Password":@{@"#":@"ISLAS"}
-                                             },
-                                     @"Destination":@{
-                                             @"@code":@"PMI",
-                                             @"@type":@"SIMPLE",
-                                             @"ZoneList":@[
-                                                     @{@"Name":@{@"#":@"Zone1"}},
-                                                     @{@"Name":@{@"#":@"Zone2"}},
-                                                     @{@"Name":@{@"#":@"Zone3"}}
-                                                    ],
-                                             @"Name":@{@"#":@"Palma"},
-                                             @"#":@"Test"
-                                             }
-                                     }
-                             };
+-(NSString *)listBaseJsonString {
+    NSString *result = @"{\"HotelListRQ\": {\"@echoToken\":\"$echoToken$\",\"@xmlns\":\"$xmlns$\",\"@xmlns:xsi\":\"$xmlns:xsi$\",\"@xsi:schemaLocation\":\"$xsi:schemaLocation$\",\"Language\":{\"#\":\"$Language$\"},\"Credentials\":{\"User\":{\"#\":\"$Credentials_User$\"},\"Password\":{\"#\":\"$Credentials_Password$\"}},\"Destination\":{\"@code\":\"Destination_code\",\"@type\":\"$Destination_type$\",\"Name\":{\"#\":\"$Destination_Name$\"},\"ZoneList\":[{\"Name\":{\"#\":\"$Zone_Name_1$\"}},{\"Name\":{\"#\":\"$Zone_Name_2$\"}},{\"Name\":{\"#\":\"$Zone_Name_3$\"}}],\"#\":\"$Destination$\"}}}";
+    
     return result;
 }
 
 -(void)checkXmlString:(NSString *)xmlString
-       withDictionary:(NSDictionary *)dictionary {
+         withBaseJson:(NSString *)baseJson
+        andDictionary:(NSDictionary *)dictionary {
     //go through the dictionary
     for (NSString *key in dictionary) {
-        //attributes
-        if ([key hasPrefix:@"@"]) {
-            
-            STAssertTrue([xmlString containsString:[key substringFromIndex:1]], @"Attribute %@ was not found in xml: %@", [key substringFromIndex:1], xmlString);
-            STAssertTrue([xmlString containsString:dictionary[key]], @"Value %@ of attribute %@ was not found in xml: %@", dictionary[key], [key substringFromIndex:1], xmlString);
-        }
-        //value
-        else if ([key isEqualToString:@"#"]) {
-            STAssertTrue([xmlString containsString:dictionary[key]], @"Value %@ of attribute %@ was not found in xml: %@", dictionary[key], [key substringFromIndex:1], xmlString);
-        }
-        //element
-        else {
-            //if it's a dictionary
-            if ([dictionary[key] isKindOfClass:[NSDictionary class]]) {
-                [self checkXmlString:xmlString withDictionary:dictionary[key]];
-            }
-            //if it's an array
-            else if ([dictionary[key] isKindOfClass:[NSArray class]]) {
-                for (id item in dictionary[key]) {
-                    if ([item isKindOfClass:[NSDictionary class]]) {
-                        [self checkXmlString:xmlString withDictionary:item];
-                    }
-                    else {
-                        STFail(@"Malformed XML dictionary. Key %@ has an array of arrays in it: %@", key, dictionary);
-                    }
-                }
-            }
+        if ([baseJson containsString:[NSString stringWithFormat:@"$%@$",key]]){
+            STAssertTrue([xmlString containsString:dictionary[key]], @"Value %@ for key %@ cant be found in xml %@", dictionary[key], key, xmlString);
         }
     }
 }

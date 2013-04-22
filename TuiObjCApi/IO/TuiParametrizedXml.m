@@ -7,11 +7,14 @@
 //
 
 #import "TuiParametrizedXml.h"
+#import "NSString+Tui.h"
 
 #pragma mark - Private interface
 @interface TuiParametrizedXml ()
 
+@property (strong, nonatomic, readwrite) NSString *baseJson;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *parameters;
+//aux private property for producing xml string
 @property (strong, nonatomic) NSString *xmlString;
 
 /**
@@ -22,45 +25,65 @@
 -(void)xmlfyElementWithName:(NSString *)name
                     andBody:(NSDictionary *)body;
 
+/**
+ * Gets the baseJson and replaces all the parameters
+ * @return the json string with the parameters replaced.
+ */
+-(NSString *)replaceAll;
+
+/**
+ * Produces an xml string from a properly formatted JSON Dictionary
+ * The "@" prefix is used for attributes, the "#" field is used for value.
+ * @return the json string with the parameters replaced.
+ */
+-(NSString *)produceXmlWithJson:(NSDictionary *)xmlJson;
+
 @end
 
 #pragma mark - Implementation
 @implementation TuiParametrizedXml
 
-#pragma mark - Synthesized properties
-
 #pragma mark - Public methods
--(TuiParametrizedXml *) initWithDictionary:(NSDictionary *)parameters {
+-(TuiParametrizedXml *)initWithJsonString:(NSString *)jsonString {
     self = [super init];
     
-    if (self){
-        _parameters = [parameters mutableCopy];
-        _xmlString = @"";
+    if (self) {
+        _baseJson = jsonString;
+        _parameters = [NSMutableDictionary dictionary];
     }
     
     return self;
 }
 
--(NSString *)getXmlString{
-    _xmlString = @"";
+-(TuiParametrizedXml *)addValue:(NSString *)value forKey:(NSString*)key {
+    if (value != nil)
+        [_parameters setValue:value forKey:key];
     
-    for (NSString *element in _parameters) {
-        if ([_parameters[element] isKindOfClass:[NSDictionary class]]) { //It's a dictionary
-            [self xmlfyElementWithName:element andBody:_parameters[element]];
-        }
-        else if ([_parameters[element] isKindOfClass:[NSArray class]]) { //It's an array
-            _xmlString = [NSString stringWithFormat:@"%@<%@>", _xmlString, element];
-            for (NSDictionary *item in _parameters[element]) {
-                [self xmlfyElementWithName:nil andBody:item];
-            }
-            _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, element];
-        }
-        else  { //other
-            [self xmlfyElementWithName:element andBody:[NSDictionary dictionary]];
-        }
+    return self;
+}
+
+-(TuiParametrizedXml *)addKeysAndValuesFromDictionary:(NSDictionary *)dictionary {
+    for (NSString *key in dictionary) {
+        //only add those keys whose value is a NSString
+        if ([dictionary[key] isKindOfClass:[NSString class]])
+            [self addValue:dictionary[key] forKey:key];
     }
+    return self;
+}
+
+-(NSString *)getXmlString{
+    //Replace all the parameters in the json string
+    NSString *replacedJsonString = [self replaceAll];
+    //return the xml
+    NSError *jsonError = nil;
+    NSDictionary *replacedJson = [NSJSONSerialization JSONObjectWithData:[replacedJsonString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                 options:NSJSONReadingMutableContainers
+                                                                   error:&jsonError];
+    if (jsonError)
+        @throw [NSException exceptionWithName:@"TuiInvalidJsonException" reason:[NSString stringWithFormat:@"Exception parsing JSON from string %@",replacedJsonString] userInfo:[jsonError userInfo]];
     
-    return _xmlString;
+    return [self produceXmlWithJson:replacedJson];
+    
 }
 
 #pragma mark - Private methods
@@ -103,6 +126,42 @@
     //close tag. Only when the name is not nil.
     if (name != nil)
         _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, name];
+}
+
+-(NSString *)replaceAll {
+    NSString *result = _baseJson;
+    
+    for (NSString *key in _parameters) {
+        //look for the first occurrence of "$key$" in the remainder of result
+        NSString *searchkey = [NSString stringWithFormat:@"$%@$", key];
+        result = [result stringByReplacingFirstOccurrenceOfString:searchkey
+                                                       withString:_parameters[key]];
+    }
+    
+    return result;
+}
+
+-(NSString *)produceXmlWithJson:(NSDictionary *)xmlJson
+{
+    _xmlString = @"";
+    
+    for (NSString *element in xmlJson) {
+        if ([xmlJson[element] isKindOfClass:[NSDictionary class]]) { //It's a dictionary
+            [self xmlfyElementWithName:element andBody:xmlJson[element]];
+        }
+        else if ([xmlJson[element] isKindOfClass:[NSArray class]]) { //It's an array
+            _xmlString = [NSString stringWithFormat:@"%@<%@>", _xmlString, element];
+            for (NSDictionary *item in xmlJson[element]) {
+                [self xmlfyElementWithName:nil andBody:item];
+            }
+            _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, element];
+        }
+        else  { //other
+            [self xmlfyElementWithName:element andBody:[NSDictionary dictionary]];
+        }
+    }
+    
+    return _xmlString;
 }
 
 @end

@@ -26,4 +26,13 @@
  */
 -(BOOL)containsString:(NSString *)string;
 
+/**
+ * Replaces only the first occurence of a string with the provided value
+ * @param original the string to be replaced.
+ * @param replacement the replacement.
+ * @return the string replaced.
+ */
+-(NSString *)stringByReplacingFirstOccurrenceOfString:(NSString *)original
+                                           withString:(NSString *)replacement;
+
 @end
