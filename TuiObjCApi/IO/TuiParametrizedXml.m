@@ -12,8 +12,12 @@
 #pragma mark - Private interface
 @interface TuiParametrizedXml ()
 
-@property (strong, nonatomic, readwrite) NSString *baseJson;
-@property (strong, nonatomic, readwrite) NSMutableDictionary *parameters;
+//The JSON String with the parameters to be replaced
+@property (strong, nonatomic) NSString *baseJson;
+//The XML String with the parameters to be replaced
+@property (strong, nonatomic) NSString *baseXml;
+//The parameters that will replace the $xxxxx$ strings either in the baseJson or in the baseXml
+@property (strong, nonatomic) NSMutableDictionary *parameters;
 //aux private property for producing xml string
 @property (strong, nonatomic) NSString *xmlString;
 
@@ -50,6 +54,19 @@
     if (self) {
         _baseJson = jsonString;
         _parameters = [NSMutableDictionary dictionary];
+        _baseXml = nil;
+    }
+    
+    return self;
+}
+
+-(TuiParametrizedXml *)initWithXmlString:(NSString *)xmlString {
+    self = [super init];
+    
+    if (self) {
+        _baseXml = xmlString;
+        _parameters = [NSMutableDictionary dictionary];
+        _baseJson = nil;
     }
     
     return self;
@@ -73,17 +90,20 @@
 
 -(NSString *)getXmlString{
     //Replace all the parameters in the json string
-    NSString *replacedJsonString = [self replaceAll];
+    NSString *replacedString = [self replaceAll];
     //return the xml
-    NSError *jsonError = nil;
-    NSDictionary *replacedJson = [NSJSONSerialization JSONObjectWithData:[replacedJsonString dataUsingEncoding:NSUTF8StringEncoding]
-                                                                 options:NSJSONReadingMutableContainers
-                                                                   error:&jsonError];
-    if (jsonError)
-        @throw [NSException exceptionWithName:@"TuiInvalidJsonException" reason:[NSString stringWithFormat:@"Exception parsing JSON from string %@",replacedJsonString] userInfo:[jsonError userInfo]];
-    
-    return [self produceXmlWithJson:replacedJson];
-    
+    if (_baseJson) { //We are dealing with JSON
+        NSError *jsonError = nil;
+        NSDictionary *replacedJson = [NSJSONSerialization JSONObjectWithData:[replacedString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                     options:NSJSONReadingMutableContainers
+                                                                       error:&jsonError];
+        if (jsonError)
+            @throw [NSException exceptionWithName:@"TuiInvalidJsonException" reason:[NSString stringWithFormat:@"Exception parsing JSON from string %@",replacedString] userInfo:[jsonError userInfo]];
+        
+        return [self produceXmlWithJson:replacedJson];
+    }
+    //We are dealing with XML
+    return replacedString;
 }
 
 #pragma mark - Private methods
@@ -129,7 +149,7 @@
 }
 
 -(NSString *)replaceAll {
-    NSString *result = _baseJson;
+    NSString *result = _baseJson ? _baseJson : _baseXml;
     
     for (NSString *key in _parameters) {
         //look for the first occurrence of "$key$" in the remainder of result

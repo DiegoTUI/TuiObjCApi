@@ -9,25 +9,31 @@
 #import <Foundation/Foundation.h>
 
 /**
- * An XML defined through a JSON set of parameters. 
- * These parameters are written into the JSON and transtated into a XML string for queries
- * The "@" prefix is used for attributes, the "#" field is used for value.
+ * An XML defined through a set of parameters. 
+ * There are to init options:
+ *      - Through a parametrized Json string.
+ *          These parameters are written into the JSON and transtated into a XML string for queries
+ *          The "@" prefix is used for attributes, the "#" field is used for value.
+ *      - Through a parametrized Xml string.
+ * In all cases it produces an XML string ready to send to a query.
  * @author diego
  */
 
 @interface TuiParametrizedXml : NSObject
 
-//The JSON String with the parameters to be replaced
-@property (strong, nonatomic, readonly) NSString *baseJson;
-//The parameters that will replace the $xxxxx$ strings in the baseJson
-@property (strong, nonatomic, readonly) NSMutableDictionary *parameters;
-
 /**
  * Inits the object with a certain JSON string
- * @param parameters the dictionary to init the object.
+ * @param jsonString the JSON string properly formatted.
  * @return self.
  */
 -(TuiParametrizedXml *)initWithJsonString:(NSString *)jsonString;
+
+/**
+ * Inits the object with a certain XML string
+ * @param xmlString the XML string properly formatted.
+ * @return self.
+ */
+-(TuiParametrizedXml *)initWithXmlString:(NSString *)xmlString;
 
 /**
  * Add a new parameter, key=value.
