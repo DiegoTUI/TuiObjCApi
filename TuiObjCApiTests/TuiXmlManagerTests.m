@@ -69,6 +69,12 @@
     NSString *xmlString = [hotelListRQ getXmlString];
     NSLog(@"testJsonFeed HotelListRQ: %@", xmlString);
     [self checkXmlString:xmlString withBaseString:[hotelListRQ getBaseString] andDictionary:_paramHotelList];
+    //get TicketAvailRQ
+    TuiParametrizedXml *ticketAvailRQ = [xmlmanager getXmlWithKey:@"TicketAvailRQ"];
+    [ticketAvailRQ addKeysAndValuesFromDictionary:_paramTicketAvail];
+    xmlString = [ticketAvailRQ getXmlString];
+    NSLog(@"testJsonFeed TicketAvailRQ: %@", xmlString);
+    [self checkXmlString:xmlString withBaseString:[ticketAvailRQ getBaseString] andDictionary:_paramTicketAvail];
     
 }
 
@@ -80,6 +86,12 @@
     NSString *xmlString = [hotelListRQ getXmlString];
     NSLog(@"testXmlFeed HotelListRQ: %@", xmlString);
     [self checkXmlString:xmlString withBaseString:[hotelListRQ getBaseString] andDictionary:_paramHotelList];
+    //get TicketAvailRQ
+    TuiParametrizedXml *ticketAvailRQ = [xmlmanager getXmlWithKey:@"TicketAvailRQ"];
+    [ticketAvailRQ addKeysAndValuesFromDictionary:_paramTicketAvail];
+    xmlString = [ticketAvailRQ getXmlString];
+    NSLog(@"testJsonFeed TicketAvailRQ: %@", xmlString);
+    [self checkXmlString:xmlString withBaseString:[ticketAvailRQ getBaseString] andDictionary:_paramTicketAvail];
 }
 
 -(void)checkXmlString:(NSString *)xmlString
