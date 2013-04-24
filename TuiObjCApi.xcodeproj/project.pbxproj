@@ -18,6 +18,16 @@
 		7667122A17213B3A00474484 /* NSString+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122917213B3A00474484 /* NSString+Tui.m */; };
 		7667122D172527FA00474484 /* NSString+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122917213B3A00474484 /* NSString+Tui.m */; };
 		766712301725606200474484 /* TuiXmlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7667122F1725606200474484 /* TuiXmlManager.m */; };
+		769D1F1A1726CFD900360513 /* TuiHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F191726CFD900360513 /* TuiHttpRequest.m */; };
+		769D1F1D1726D43A00360513 /* TuiUrlReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F1C1726D43900360513 /* TuiUrlReader.m */; };
+		769D1F201726E78900360513 /* TuiJsonReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F1F1726E78900360513 /* TuiJsonReader.m */; };
+		769D1F231726E9AC00360513 /* NSDictionary+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F221726E9AC00360513 /* NSDictionary+Tui.m */; };
+		76AF14671727C1E900699E42 /* TuiContextCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14661727C1E900699E42 /* TuiContextCache.m */; };
+		76AF146A1727C68300699E42 /* TuiJsonStorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14691727C68300699E42 /* TuiJsonStorer.m */; };
+		76AF146E1727C7A700699E42 /* TuiClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF146D1727C7A700699E42 /* TuiClassManager.m */; };
+		76AF14711727C94100699E42 /* NSObject+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14701727C94100699E42 /* NSObject+Tui.m */; };
+		76AF14761727CB7F00699E42 /* TuiDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14751727CB7F00699E42 /* TuiDateFormatter.m */; };
+		76AF14791727F2A700699E42 /* TuiDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +70,26 @@
 		7667122917213B3A00474484 /* NSString+Tui.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Tui.m"; path = "Categories/NSString+Tui.m"; sourceTree = "<group>"; };
 		7667122E1725606200474484 /* TuiXmlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiXmlManager.h; path = IO/TuiXmlManager.h; sourceTree = "<group>"; };
 		7667122F1725606200474484 /* TuiXmlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiXmlManager.m; path = IO/TuiXmlManager.m; sourceTree = "<group>"; };
+		769D1F181726CFD900360513 /* TuiHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiHttpRequest.h; path = IO/TuiHttpRequest.h; sourceTree = "<group>"; };
+		769D1F191726CFD900360513 /* TuiHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiHttpRequest.m; path = IO/TuiHttpRequest.m; sourceTree = "<group>"; };
+		769D1F1B1726D43900360513 /* TuiUrlReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiUrlReader.h; path = IO/TuiUrlReader.h; sourceTree = "<group>"; };
+		769D1F1C1726D43900360513 /* TuiUrlReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiUrlReader.m; path = IO/TuiUrlReader.m; sourceTree = "<group>"; };
+		769D1F1E1726E78900360513 /* TuiJsonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiJsonReader.h; path = IO/TuiJsonReader.h; sourceTree = "<group>"; };
+		769D1F1F1726E78900360513 /* TuiJsonReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiJsonReader.m; path = IO/TuiJsonReader.m; sourceTree = "<group>"; };
+		769D1F211726E9AC00360513 /* NSDictionary+Tui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Tui.h"; path = "Categories/NSDictionary+Tui.h"; sourceTree = "<group>"; };
+		769D1F221726E9AC00360513 /* NSDictionary+Tui.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Tui.m"; path = "Categories/NSDictionary+Tui.m"; sourceTree = "<group>"; };
+		76AF14651727C1E900699E42 /* TuiContextCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiContextCache.h; path = Cache/TuiContextCache.h; sourceTree = "<group>"; };
+		76AF14661727C1E900699E42 /* TuiContextCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiContextCache.m; path = Cache/TuiContextCache.m; sourceTree = "<group>"; };
+		76AF14681727C68300699E42 /* TuiJsonStorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiJsonStorer.h; path = IO/TuiJsonStorer.h; sourceTree = "<group>"; };
+		76AF14691727C68300699E42 /* TuiJsonStorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiJsonStorer.m; path = IO/TuiJsonStorer.m; sourceTree = "<group>"; };
+		76AF146C1727C7A700699E42 /* TuiClassManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiClassManager.h; path = Util/TuiClassManager.h; sourceTree = "<group>"; };
+		76AF146D1727C7A700699E42 /* TuiClassManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiClassManager.m; path = Util/TuiClassManager.m; sourceTree = "<group>"; };
+		76AF146F1727C94100699E42 /* NSObject+Tui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Tui.h"; path = "Categories/NSObject+Tui.h"; sourceTree = "<group>"; };
+		76AF14701727C94100699E42 /* NSObject+Tui.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Tui.m"; path = "Categories/NSObject+Tui.m"; sourceTree = "<group>"; };
+		76AF14741727CB7F00699E42 /* TuiDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiDateFormatter.h; path = Model/TuiDateFormatter.h; sourceTree = "<group>"; };
+		76AF14751727CB7F00699E42 /* TuiDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiDateFormatter.m; path = Model/TuiDateFormatter.m; sourceTree = "<group>"; };
+		76AF14771727F2A700699E42 /* TuiDateFormatterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiDateFormatterTests.h; sourceTree = "<group>"; };
+		76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiDateFormatterTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +147,9 @@
 		766711F9171FF6C800474484 /* TuiObjCApi */ = {
 			isa = PBXGroup;
 			children = (
+				76AF14721727CB0F00699E42 /* Model */,
+				76AF146B1727C76700699E42 /* Util */,
+				76AF14641727C19300699E42 /* Cache */,
 				7667122717213AF000474484 /* Categories */,
 				766712201720016000474484 /* IO */,
 				766711FA171FF6C800474484 /* Supporting Files */,
@@ -139,6 +172,8 @@
 				7667120F171FF6C800474484 /* Supporting Files */,
 				766712241721264700474484 /* TuiParametrizedXmlTests.h */,
 				766712251721264700474484 /* TuiParametrizedXmlTests.m */,
+				76AF14771727F2A700699E42 /* TuiDateFormatterTests.h */,
+				76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */,
 			);
 			path = TuiObjCApiTests;
 			sourceTree = "<group>";
@@ -159,6 +194,14 @@
 				766712221720021900474484 /* TuiParametrizedXml.m */,
 				7667122E1725606200474484 /* TuiXmlManager.h */,
 				7667122F1725606200474484 /* TuiXmlManager.m */,
+				769D1F181726CFD900360513 /* TuiHttpRequest.h */,
+				769D1F191726CFD900360513 /* TuiHttpRequest.m */,
+				769D1F1B1726D43900360513 /* TuiUrlReader.h */,
+				769D1F1C1726D43900360513 /* TuiUrlReader.m */,
+				769D1F1E1726E78900360513 /* TuiJsonReader.h */,
+				769D1F1F1726E78900360513 /* TuiJsonReader.m */,
+				76AF14681727C68300699E42 /* TuiJsonStorer.h */,
+				76AF14691727C68300699E42 /* TuiJsonStorer.m */,
 			);
 			name = IO;
 			sourceTree = "<group>";
@@ -168,8 +211,47 @@
 			children = (
 				7667122817213B3A00474484 /* NSString+Tui.h */,
 				7667122917213B3A00474484 /* NSString+Tui.m */,
+				769D1F211726E9AC00360513 /* NSDictionary+Tui.h */,
+				769D1F221726E9AC00360513 /* NSDictionary+Tui.m */,
+				76AF146F1727C94100699E42 /* NSObject+Tui.h */,
+				76AF14701727C94100699E42 /* NSObject+Tui.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		76AF14641727C19300699E42 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				76AF14651727C1E900699E42 /* TuiContextCache.h */,
+				76AF14661727C1E900699E42 /* TuiContextCache.m */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
+		76AF146B1727C76700699E42 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				76AF146C1727C7A700699E42 /* TuiClassManager.h */,
+				76AF146D1727C7A700699E42 /* TuiClassManager.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		76AF14721727CB0F00699E42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76AF14731727CB1E00699E42 /* Time */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		76AF14731727CB1E00699E42 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				76AF14741727CB7F00699E42 /* TuiDateFormatter.h */,
+				76AF14751727CB7F00699E42 /* TuiDateFormatter.m */,
+			);
+			name = Time;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +355,15 @@
 				766712231720021900474484 /* TuiParametrizedXml.m in Sources */,
 				7667122A17213B3A00474484 /* NSString+Tui.m in Sources */,
 				766712301725606200474484 /* TuiXmlManager.m in Sources */,
+				769D1F1A1726CFD900360513 /* TuiHttpRequest.m in Sources */,
+				769D1F1D1726D43A00360513 /* TuiUrlReader.m in Sources */,
+				769D1F201726E78900360513 /* TuiJsonReader.m in Sources */,
+				769D1F231726E9AC00360513 /* NSDictionary+Tui.m in Sources */,
+				76AF14671727C1E900699E42 /* TuiContextCache.m in Sources */,
+				76AF146A1727C68300699E42 /* TuiJsonStorer.m in Sources */,
+				76AF146E1727C7A700699E42 /* TuiClassManager.m in Sources */,
+				76AF14711727C94100699E42 /* NSObject+Tui.m in Sources */,
+				76AF14761727CB7F00699E42 /* TuiDateFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +373,7 @@
 			files = (
 				766712261721264700474484 /* TuiParametrizedXmlTests.m in Sources */,
 				7667122D172527FA00474484 /* NSString+Tui.m in Sources */,
+				76AF14791727F2A700699E42 /* TuiDateFormatterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +525,7 @@
 				7667121B171FF6C800474484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7667121C171FF6C800474484 /* Build configuration list for PBXNativeTarget "TuiObjCApiTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +534,7 @@
 				7667121E171FF6C800474484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

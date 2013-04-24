@@ -109,12 +109,12 @@
 }
 
 -(NSString *)regularBaseXmlString {
-    NSString *result = @"<HotelListRQ echoToken=\"$echoToken$\" xmlns=\"$xmlns$\" xmlns:xsi=\"$xmlns:xsi$\" xsi:schemaLocation=\"$xsi:schemaLocation$\"><Language>$Language$</Language><Credentials><User>$Credentials_User$</User><Password>$Credentials_Password$</Password></Credentials><Destination code=\"$Destination_code$\" type=\"$Destination_type$\">$Destination$<Name>$Destination_Name$</Name></Destination</HotelListRQ>";
+    NSString *result = @"<HotelListRQ echoToken=\"$echoToken$\" xmlns=\"$xmlns$\" xmlns:xsi=\"$xmlns:xsi$\" xsi:schemaLocation=\"$xsi:schemaLocation$\"><Language>$Language$</Language><Credentials><User>$Credentials_User$</User><Password>$Credentials_Password$</Password></Credentials><Destination code=\"$Destination_code$\" type=\"$Destination_type$\">$Destination$<Name>$Destination_Name$</Name></Destination></HotelListRQ>";
     return result;
 }
 
 -(NSString *)listBaseXmlString {
-    NSString *result = @"<HotelListRQ echoToken=\"$echoToken$\" xmlns=\"$xmlns$\" xmlns:xsi=\"$xmlns:xsi$\" xsi:schemaLocation=\"$xsi:schemaLocation$\"><Language>$Language$</Language><Credentials><User>$Credentials_User$</User><Password>$Credentials_Password$</Password></Credentials><Destination code=\"$Destination_code$\" type=\"$Destination_type$\">$Destination$<Name>$Destination_Name$</Name><ZoneList><Name>$ZoneList_Name_1$</Name><Name>$ZoneList_Name_2$</Name><Name>$ZoneList_Name_3$</Name></ZoneList></Destination</HotelListRQ>";
+    NSString *result = @"<HotelListRQ echoToken=\"$echoToken$\" xmlns=\"$xmlns$\" xmlns:xsi=\"$xmlns:xsi$\" xsi:schemaLocation=\"$xsi:schemaLocation$\"><Language>$Language$</Language><Credentials><User>$Credentials_User$</User><Password>$Credentials_Password$</Password></Credentials><Destination code=\"$Destination_code$\" type=\"$Destination_type$\">$Destination$<Name>$Destination_Name$</Name><ZoneList><Name>$ZoneList_Name_1$</Name><Name>$ZoneList_Name_2$</Name><Name>$ZoneList_Name_3$</Name></ZoneList></Destination></HotelListRQ>";
     return result;
 }
 

@@ -7,7 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TuiParametrizedXml.h"
 
 @interface TuiXmlManager : NSObject
+
+/**
+ * Inits the object with the JSON feed. 
+ * @return this object.
+ */
+-(TuiXmlManager *)initWithJsonFeed;
+
+/**
+ * Inits the object with the XML feed.
+ * @return this object.
+ */
+-(TuiXmlManager *)initWithXmlFeed;
+
+/**
+ * Get the parametrized XML for the given key
+ * @param key the key for the object in xml list.
+ * @return a parametrized XML with no parameters in it.
+ */
+-(TuiParametrizedXml *)getXmlWithKey:(NSString *)key;
 
 @end

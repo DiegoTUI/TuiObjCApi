@@ -35,4 +35,17 @@
 -(NSString *)stringByReplacingFirstOccurrenceOfString:(NSString *)original
                                            withString:(NSString *)replacement;
 
+/**
+ * Produces a new string unescaping the current one according to ISO8859-1
+ * @return the string unescaped.
+ */
+-(NSString *)stringByUnescapingISO8859;
+
+/**
+ * Transform a server key (like activity_id) into a Java-like key in camelCase (like activityid).
+ * @param key the original key (e.g. activity_id).
+ * @return the Java-like key (e.g. activityId).
+ */
+-(NSString *)toCamelCase;
+
 @end

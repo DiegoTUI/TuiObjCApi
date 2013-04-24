@@ -31,4 +31,26 @@
     return result;
 }
 
+-(NSString *)stringByUnescapingISO8859 {
+    NSString *value = [NSString stringWithString:self];
+    value = [value stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    value = [value stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+    return value;
+}
+
+-(NSString *)toCamelCase {
+    NSString *transformedkey = [NSString stringWithString:self];
+    NSRange position = [transformedkey rangeOfString:@"_"];
+    while (position.location != NSNotFound) {
+        transformedkey = [NSString stringWithFormat:@"%@%@%@",
+                          [transformedkey substringToIndex:position.location],
+                          [[transformedkey substringWithRange:NSMakeRange(position.location + 1, 1)] uppercaseString],
+                          [transformedkey substringFromIndex:position.location + 2]];
+        
+        position = [transformedkey rangeOfString:@"_"];
+    }
+    
+    return transformedkey;
+}
+
 @end
