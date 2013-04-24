@@ -11,24 +11,20 @@
 
 @implementation TuiDateFormatterTests
 
-- (void)setUp
-{
+-(void)setUp {
     [super setUp];
-    
+    //Set up code here.
 }
 
-- (void)tearDown
-{
+-(void)tearDown {
     // Tear-down code here.
-    
     [super tearDown];
 }
 
 /**
  * Test dates
  */
--(void)testDates
-{
+-(void)testDates {
     //test first from nsdate to string
     NSDateComponents *datecomponents = [[NSDateComponents alloc] init];
     datecomponents.hour = 17;

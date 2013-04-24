@@ -31,7 +31,7 @@
 
 @implementation TuiParametrizedXmlTests
 
-- (void)setUp {
+-(void)setUp {
     [super setUp];
     //Set-up code here
     _paramDictionary = @{@"echoToken":@"DummyEchoToken",
@@ -51,7 +51,7 @@
                          };
 }
 
-- (void)tearDown {
+-(void)tearDown {
     //Tear-down code here.
     [super tearDown];
 }

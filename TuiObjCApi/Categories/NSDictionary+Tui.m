@@ -24,13 +24,25 @@
 -(NSDictionary *)dictionaryByUnescapingStringsInValues
 {
     return [self dictionaryByMappingValuesWithBlock:^id(id value) {
-        if ([value isKindOfClass:[NSString class]])
-        {
+        if ([value isKindOfClass:[NSString class]]) {
             value = [value stringByUnescapingISO8859];
         }
         
         return value;
     }];
+}
+
+-(NSString *)toJsonString {
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *jsonString = nil;
+    
+    if (jsonData) {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    return jsonString;
 }
 
 @end

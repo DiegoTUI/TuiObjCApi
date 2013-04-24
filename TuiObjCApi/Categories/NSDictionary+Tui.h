@@ -23,4 +23,10 @@
  */
 -(NSDictionary *)dictionaryByUnescapingStringsInValues;
 
+/**
+ * Produces a JSON string from the dictionary
+ * @return the JSON string. Nil if there was an error.
+ */
+-(NSString *)toJsonString;
+
 @end

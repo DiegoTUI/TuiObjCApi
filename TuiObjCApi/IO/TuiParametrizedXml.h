@@ -57,4 +57,11 @@
  */
 -(NSString *)getXmlString;
 
+/**
+ * Gets the base string for the parametrized Xml
+ * ONLY FOR TESTS PURPOSES
+ * @return base string.
+ */
+-(NSString *)getBaseString;
+
 @end

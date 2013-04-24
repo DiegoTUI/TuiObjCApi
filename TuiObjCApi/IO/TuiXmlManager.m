@@ -11,6 +11,7 @@
 #import "TuiJsonStorer.h"
 #import "TuiContextCache.h"
 #import "TuiParametrizedXml.h"
+#import "NSDictionary+Tui.h"
 
 #pragma mark - Private interface
 @interface TuiXmlManager ()
@@ -35,6 +36,12 @@
  * @throws TuiObjectNotFoundException.
  */
 -(NSString *)readXmlForKey:(NSString *)key;
+
+/**
+ * Converts all the values of _xmlList to strings.
+ * @throws TuiJsonParsingException.
+ */
+-(void)stringifyXmlList;
 
 @end
 
@@ -85,6 +92,9 @@
         if (retrieved != nil)
             _xmlList = retrieved;
     }
+    @finally {
+        [self stringifyXmlList];
+    }
     
 }
 
@@ -99,6 +109,20 @@
     if (![[TuiContextCache sharedInstance] readValueForKey:[@"xml_list" stringByAppendingString:_feed]])
         @throw [NSException exceptionWithName:@"TuiObjectNotFoundException" reason:[NSString stringWithFormat:@"Servers not available"] userInfo:nil];
      return (NSString *)[_xmlList valueForKey:key];   
+}
+
+-(void)stringifyXmlList {
+    NSMutableDictionary *mutableXmlList = [_xmlList mutableCopy];
+    for (NSString *key in _xmlList) {
+        id value = _xmlList[key];
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            NSString *stringValue = [(NSDictionary *)value toJsonString];
+            if (stringValue == nil)
+                @throw [NSException exceptionWithName:@"TuiJsonParsingException" reason:[NSString stringWithFormat:@"Error while parsing dictionary: %@",_xmlList] userInfo:nil];
+            [mutableXmlList setValue:stringValue forKey:key];
+        }
+    }
+    _xmlList = (NSDictionary *)mutableXmlList;
 }
 
 #pragma mark - NSObject methods

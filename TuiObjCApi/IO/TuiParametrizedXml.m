@@ -106,6 +106,12 @@
     return replacedString;
 }
 
+-(NSString *)getBaseString {
+    if (_baseJson)
+        return _baseJson;
+    return _baseXml;
+}
+
 #pragma mark - Private methods
 -(void)xmlfyElementWithName:(NSString *)name
                     andBody:(NSDictionary *)body {

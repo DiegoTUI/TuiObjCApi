@@ -9,6 +9,7 @@
 #import "TuiJsonStorer.h"
 #import "TuiClassManager.h"
 #import "NSObject+Tui.h"
+#import "NSDictionary+Tui.h"
 #import "TuiContextCache.h"
 #import "TuiJsonReader.h"
 
@@ -33,25 +34,18 @@
 
 -(void)storeObject:(NSObject *)object
           withName:(NSString *)name {
-    NSError *error;
     NSDictionary *jsonobject = nil;
     if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSMutableDictionary class]])
         jsonobject = (NSDictionary *)object;
     else
         jsonobject = [object convertObjectToJson];
     
-    NSData *jsondata = [NSJSONSerialization dataWithJSONObject:jsonobject
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
+    NSString *jsonstring = [jsonobject toJsonString];
     
-    if (error != nil)
-        @throw [NSException exceptionWithName:@"TuiJsonParsingException" reason:[NSString stringWithFormat:@"Error while parsing object: %@ with code: %d and description: %@",object,[error code],[error localizedDescription]] userInfo:[error userInfo]];
-    
-    
-    NSString *jsonstring = [[NSString alloc] initWithData:jsondata encoding:NSUTF8StringEncoding];
+    if (jsonstring == nil)
+        @throw [NSException exceptionWithName:@"TuiJsonParsingException" reason:[NSString stringWithFormat:@"Error while parsing dictionary: %@",jsonobject] userInfo:nil];
     
     [[TuiContextCache sharedInstance] storeValue:jsonstring forKey:name];
-    
 }
 
 -(void)deleteObjectWithName:(NSString *)name {
