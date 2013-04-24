@@ -10,6 +10,7 @@
 #import "TuiContextCache.h"
 #import "TuiXmlManager.h"
 #import "NSString+Tui.h"
+#import "TuiDateFormatter.h"
 
 @interface TuiXmlManagerTests ()
 
@@ -38,6 +39,12 @@
                         @"Credentials_Password":@"ISLAS",
                         @"Destination_code":@"PMI",
                         @"Destination_type":@"SIMPLE"};
+    NSDate *datefrom = [NSDate date];
+    NSDateComponents *datecomponents = [[NSDateComponents alloc] init];
+    datecomponents.day = 2;
+    NSDate *dateto = [[[TuiDateFormatter sharedInstance] getCalendar] dateByAddingComponents:datecomponents toDate:datefrom options:0];
+    NSString *datefromstring = [[[TuiDateFormatter sharedInstance] formatStringFromDate:datefrom] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *datetostring = [[[TuiDateFormatter sharedInstance] formatStringFromDate:dateto] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     _paramTicketAvail = @{@"echoToken":@"DummyEchoToken",
                           @"sessionId":@"DummySessionId",
                           @"xmlns":@"http://www.hotelbeds.com/schemas/2005/06/messages",
@@ -52,8 +59,8 @@
                           @"PaginationData_pageNumber":@"1",
                           @"ServiceOccupancy_AdultCount":@"1",
                           @"ServiceOccupancy_ChildCount":@"0",
-                          @"DateFrom_date":@"20130624",
-                          @"DateFrom_date":@"20130626"};
+                          @"DateFrom_date":datefromstring,
+                          @"DateTo_date":datetostring};
 }
 
 -(void)tearDown {
