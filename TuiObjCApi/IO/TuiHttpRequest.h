@@ -23,10 +23,12 @@
 +(NSData *)synchronousGetRequestWithURL:(NSString *)url;
 
 /**
- * Sends a synchronous HTTP POST request
+ * Sends a synchronous HTTP POST request. 
+ * It looks for the "?" sign and creates a body with what's right of that
  * @param url the URL to call.
  * @return the data returned by the query.
  */
 +(NSData *)synchronousPostRequestWithURL:(NSString *)url;
+
 
 @end

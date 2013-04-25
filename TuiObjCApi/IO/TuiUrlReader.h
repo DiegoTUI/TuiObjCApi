@@ -27,7 +27,7 @@
 +(TuiUrlReader *)sharedInstance;
 
 /**
- * Connect to a given URL with a certain method. Return the data
+ * Connect to a given URL with a certain method. Return the data. No body is included for POST calls.
  * @param url the URL to read
  * @param method GET or POST
  * @return the data.

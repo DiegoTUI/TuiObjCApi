@@ -48,4 +48,10 @@
  */
 -(NSString *)toCamelCase;
 
+/**
+ * Url-encode the string
+ * @return the Url-encoded string
+ */
+-(NSString *)urlEncodedString;
+
 @end

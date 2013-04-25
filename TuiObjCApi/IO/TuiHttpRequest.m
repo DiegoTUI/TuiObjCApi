@@ -58,11 +58,20 @@
 {
     NSHTTPURLResponse *response = nil;
     NSError *error = nil;
+    NSString * bodystring = nil;
+    
+    NSRange position = [url rangeOfString:@"?"];
+    if (position.location != NSNotFound) {
+        bodystring = [url substringFromIndex:(position.location+1)];
+        url = [url substringToIndex:(position.location)];
+    }
     
     NSURL *nsurl = [NSURL URLWithString:url];
     NSMutableURLRequest *urlrequest = [NSMutableURLRequest requestWithURL:nsurl];
     
     [urlrequest setHTTPMethod:@"POST"];
+    if (bodystring != nil)
+        [urlrequest setHTTPBody:[bodystring dataUsingEncoding:NSUTF8StringEncoding]];
     
     NSData *result = [NSURLConnection sendSynchronousRequest:urlrequest returningResponse:&response error:&error];
     
