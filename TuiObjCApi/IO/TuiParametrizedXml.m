@@ -12,9 +12,9 @@
 #pragma mark - Private interface
 @interface TuiParametrizedXml ()
 
-//The JSON String with the parameters to be replaced
+//The JSON String with the $parameters$ to be replaced
 @property (strong, nonatomic) NSString *baseJson;
-//The XML String with the parameters to be replaced
+//The XML String with the $parameters$ to be replaced
 @property (strong, nonatomic) NSString *baseXml;
 //The parameters that will replace the $xxxxx$ strings either in the baseJson or in the baseXml
 @property (strong, nonatomic) NSMutableDictionary *parameters;
@@ -30,8 +30,8 @@
                     andBody:(NSDictionary *)body;
 
 /**
- * Gets the baseJson and replaces all the parameters
- * @return the json string with the parameters replaced.
+ * Gets the baseString and replaces all the parameters
+ * @return the base string with the parameters replaced.
  */
 -(NSString *)replaceAll;
 
@@ -72,7 +72,8 @@
     return self;
 }
 
--(TuiParametrizedXml *)addValue:(NSString *)value forKey:(NSString*)key {
+-(TuiParametrizedXml *)addValue:(NSString *)value
+                         forKey:(NSString*)key {
     if (value != nil)
         [_parameters setValue:value forKey:key];
     

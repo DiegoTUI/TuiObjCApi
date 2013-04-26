@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TuiParametrizedUrl.h"
 
 /**
  * A class to read URLs. 
@@ -27,13 +28,11 @@
 +(TuiUrlReader *)sharedInstance;
 
 /**
- * Connect to a given URL with a certain method. Return the data. No body is included for POST calls.
+ * Connect to a given URL. Return the data. 
  * @param url the URL to read
- * @param method GET or POST
  * @return the data.
  * @throws TuiOfflineException
  */
--(NSData *)readFromUrl:(NSString *)url
-            withMethod:(NSString *)method;
+-(NSData *)readFromUrl:(TuiParametrizedUrl *)url;
 
 @end

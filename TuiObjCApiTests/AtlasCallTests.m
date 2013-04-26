@@ -46,11 +46,10 @@
     TuiParametrizedXml *hotelListRQ = [xmlmanager getXmlWithKey:@"HotelListRQ"];
     [hotelListRQ addKeysAndValuesFromDictionary:_paramHotelList];
     NSString *xmlString = [hotelListRQ getXmlString];
-    NSString *baseurl = @"http://212.170.239.71/appservices/http/FrontendService";
-    //NSString *baseurl = @"http://54.246.80.107/api/test_post.php";
-    //NSString *url = [NSString stringWithFormat:@"%@?%@", baseurl, [xmlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSString *url = [NSString stringWithFormat:@"%@?xml_request=%@", baseurl, xmlString];
-    NSData *response = [[TuiUrlReader sharedInstance] readFromUrl:url withMethod:@"POST"];
+    TuiParametrizedUrl *url = [[TuiParametrizedUrl alloc] initWithUrl:@"http://212.170.239.71/appservices/http/FrontendService?xml_request=$xml_request$"];
+    [url addValue:xmlString forKey:@"xml_request"];
+    [url setPost:YES];
+    NSData *response = [[TuiUrlReader sharedInstance] readFromUrl:url];
     //NSData *response = [[TuiUrlReader sharedInstance] readPostFromUrl:baseurl withBody:[xmlString dataUsingEncoding:NSUTF8StringEncoding]];
     NSString *responsestring = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSLog(@"Response from Atlas: %@", responsestring);

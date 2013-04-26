@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TuiParametrizedUrl.h"
 
 /**
  * A class to read and parse JSONs.
@@ -23,12 +24,9 @@
 /**
  * Connect to the given URL, return a JSON object.
  * @param url the URL to read.
- * @param method GET or POST
  * @return the JSON.
- * @throws TuiInvalidUrlException
  */
--(NSDictionary *)readJsonFromURL:(NSString *)url
-                      withMethod:(NSString *)method;
+-(NSDictionary *)readJsonFromUrl:(TuiParametrizedUrl *)url;
 
 /**
  * Reads a string, generates a JSON object.

@@ -31,9 +31,7 @@
     return sharedInstance;
 }
 
--(NSData *)readFromUrl:(NSString *)url
-            withMethod:(NSString *)method {
-    BOOL isPost = [method isEqualToString:@"POST"];
+-(NSData *)readFromUrl:(TuiParametrizedUrl *)url {
     NSData *response = nil;
     
     NSInteger retries = TUI_NUMBER_OF_CONNECTION_RETRIES;
@@ -45,10 +43,10 @@
     while (current < retries)
     {
         @try {
-            if (isPost)
-                response = [TuiHttpRequest synchronousPostRequestWithURL:url];
+            if ([url isPost])
+                response = [TuiHttpRequest synchronousPostRequestWithURL:[url getRawURL]];
             else
-                response = [TuiHttpRequest synchronousGetRequestWithURL:url];
+                response = [TuiHttpRequest synchronousGetRequestWithURL:[url getRawURL]];
             self.offline = false;
             return response;
         }

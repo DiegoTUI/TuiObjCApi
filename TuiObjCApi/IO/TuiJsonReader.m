@@ -110,9 +110,8 @@
     return sharedInstance;
 }
 
--(NSDictionary *)readJsonFromURL:(NSString *)url
-                      withMethod:(NSString *)method {
-    NSData *response = [[TuiUrlReader sharedInstance] readFromUrl:url withMethod:method];
+-(NSDictionary *)readJsonFromUrl:(TuiParametrizedUrl *)url {
+    NSData *response = [[TuiUrlReader sharedInstance] readFromUrl:url];
     
     NSError *JSONError = nil;
     id JSONDictionary = [NSJSONSerialization JSONObjectWithData:response

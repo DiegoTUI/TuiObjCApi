@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "TuiParametrizedXml.h"
 
+/**
+ * Manages a list of parametrized xmls
+ * @author diego
+ */
 @interface TuiXmlManager : NSObject
 
 /**

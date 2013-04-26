@@ -8,25 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TuiObjCApiTests/AtlasCallTests.m"
-         timestampString = "388597432.386727"
+         timestampString = "388680578.253655"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-testCallAtlasHotelListRQ"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TuiObjCApi/IO/TuiUrlReader.m"
-         timestampString = "388596084.18014"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
-         landmarkName = "-readFromUrl:withMethod:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

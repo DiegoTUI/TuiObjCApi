@@ -23,6 +23,11 @@
 		769D1F231726E9AC00360513 /* NSDictionary+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F221726E9AC00360513 /* NSDictionary+Tui.m */; };
 		769D858217293F3B00E09CAE /* PostCallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D858117293F3B00E09CAE /* PostCallTest.m */; };
 		769D858417297FF300E09CAE /* AtlasCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D857E1729190900E09CAE /* AtlasCallTests.m */; };
+		769D8587172AB8D500E09CAE /* TuiParametrizedUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D8586172AB8D500E09CAE /* TuiParametrizedUrl.m */; };
+		769D858A172ABFA100E09CAE /* TuiUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D8589172ABFA100E09CAE /* TuiUrlManager.m */; };
+		769D858B172ACBE000E09CAE /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
+		769D858C172ACBE000E09CAE /* TuiDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */; };
+		769D858D172ACBE000E09CAE /* TuiXmlManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */; };
 		76AF14671727C1E900699E42 /* TuiContextCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14661727C1E900699E42 /* TuiContextCache.m */; };
 		76AF146A1727C68300699E42 /* TuiJsonStorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14691727C68300699E42 /* TuiJsonStorer.m */; };
 		76AF146E1727C7A700699E42 /* TuiClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF146D1727C7A700699E42 /* TuiClassManager.m */; };
@@ -84,6 +89,10 @@
 		769D857E1729190900E09CAE /* AtlasCallTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtlasCallTests.m; sourceTree = "<group>"; };
 		769D858017293F3B00E09CAE /* PostCallTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCallTest.h; sourceTree = "<group>"; };
 		769D858117293F3B00E09CAE /* PostCallTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCallTest.m; sourceTree = "<group>"; };
+		769D8585172AB8D500E09CAE /* TuiParametrizedUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiParametrizedUrl.h; path = IO/TuiParametrizedUrl.h; sourceTree = "<group>"; };
+		769D8586172AB8D500E09CAE /* TuiParametrizedUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiParametrizedUrl.m; path = IO/TuiParametrizedUrl.m; sourceTree = "<group>"; };
+		769D8588172ABFA100E09CAE /* TuiUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiUrlManager.h; path = IO/TuiUrlManager.h; sourceTree = "<group>"; };
+		769D8589172ABFA100E09CAE /* TuiUrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiUrlManager.m; path = IO/TuiUrlManager.m; sourceTree = "<group>"; };
 		76AF14651727C1E900699E42 /* TuiContextCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiContextCache.h; path = Cache/TuiContextCache.h; sourceTree = "<group>"; };
 		76AF14661727C1E900699E42 /* TuiContextCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiContextCache.m; path = Cache/TuiContextCache.m; sourceTree = "<group>"; };
 		76AF14681727C68300699E42 /* TuiJsonStorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiJsonStorer.h; path = IO/TuiJsonStorer.h; sourceTree = "<group>"; };
@@ -216,6 +225,10 @@
 				769D1F1F1726E78900360513 /* TuiJsonReader.m */,
 				76AF14681727C68300699E42 /* TuiJsonStorer.h */,
 				76AF14691727C68300699E42 /* TuiJsonStorer.m */,
+				769D8585172AB8D500E09CAE /* TuiParametrizedUrl.h */,
+				769D8586172AB8D500E09CAE /* TuiParametrizedUrl.m */,
+				769D8588172ABFA100E09CAE /* TuiUrlManager.h */,
+				769D8589172ABFA100E09CAE /* TuiUrlManager.m */,
 			);
 			name = IO;
 			sourceTree = "<group>";
@@ -378,6 +391,8 @@
 				76AF146E1727C7A700699E42 /* TuiClassManager.m in Sources */,
 				76AF14711727C94100699E42 /* NSObject+Tui.m in Sources */,
 				76AF14761727CB7F00699E42 /* TuiDateFormatter.m in Sources */,
+				769D8587172AB8D500E09CAE /* TuiParametrizedUrl.m in Sources */,
+				769D858A172ABFA100E09CAE /* TuiUrlManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +405,9 @@
 				76AF147E1728042000699E42 /* NSObject+Tui.m in Sources */,
 				769D858217293F3B00E09CAE /* PostCallTest.m in Sources */,
 				769D858417297FF300E09CAE /* AtlasCallTests.m in Sources */,
+				769D858B172ACBE000E09CAE /* TuiParametrizedXmlTests.m in Sources */,
+				769D858C172ACBE000E09CAE /* TuiDateFormatterTests.m in Sources */,
+				769D858D172ACBE000E09CAE /* TuiXmlManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

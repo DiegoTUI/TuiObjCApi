@@ -22,8 +22,11 @@
 }
 
 -(void)testQuery {
-    NSString *url = @"http://54.246.80.107/api/test_post.php?field1=test1&field2=test2";
-    NSData *response = [[TuiUrlReader sharedInstance] readFromUrl:url withMethod:@"POST"];
+    TuiParametrizedUrl *url = [[TuiParametrizedUrl alloc] initWithUrl:@"http://54.246.80.107/api/test_post.php?field1=$field1$&field2=$field2$"];
+    [url addValue:@"test1" forKey:@"field1"];
+    [url addValue:@"test2" forKey:@"field2"];
+    [url setPost:YES];
+    NSData *response = [[TuiUrlReader sharedInstance] readFromUrl:url];
     //NSData *response = [[TuiUrlReader sharedInstance] readPostFromUrl:baseurl withBody:[xmlString dataUsingEncoding:NSUTF8StringEncoding]];
     NSString *responsestring = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
     NSLog(@"Response from Atlas: %@", responsestring);

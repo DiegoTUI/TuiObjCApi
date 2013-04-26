@@ -11,6 +11,7 @@
 #import "TuiJsonStorer.h"
 #import "TuiContextCache.h"
 #import "TuiParametrizedXml.h"
+#import "TuiParametrizedUrl.h"
 #import "NSDictionary+Tui.h"
 
 #pragma mark - Private interface
@@ -19,15 +20,15 @@
 //The dictionary with the keys and feeds
 @property (strong, nonatomic) NSDictionary *xmlList;
 //The base URL for the calls
-@property (strong,nonatomic) NSString *baseURL;
+@property (strong,nonatomic) NSString *baseUrl;
 //The type of feed used for this XML manager
 @property (strong, nonatomic) NSString *feed;
 
 /**
- * Read the list of xmls from the given URL and store the results in _xmlList
+ * Read the list of xmls from the _baseUrl and store the results in _xmlList
  * @param url the url to read from.
  */
--(void)readXmlListFromUrl:(NSString *)url;
+-(void)readXmlList;
 
 /**
  * Reads the param xml string.
@@ -53,8 +54,7 @@
     self = [self init];
     if (self) {
         _feed = @"json";
-        NSString *url = [_baseURL stringByAppendingString:_feed];
-        [self readXmlListFromUrl:url];
+        [self readXmlList];
         
     }
     return self;
@@ -64,8 +64,7 @@
     self = [self init];
     if (self) {
         _feed = @"xml";
-        NSString *url = [_baseURL stringByAppendingString:_feed];
-        [self readXmlListFromUrl:url];
+        [self readXmlList];
         
     }
     return self;
@@ -79,15 +78,16 @@
 }
 
 #pragma mark - Private methods
--(void)readXmlListFromUrl:(NSString *)url {
-    
+-(void)readXmlList {
+    TuiParametrizedUrl *url = [[TuiParametrizedUrl alloc] initWithUrl:_baseUrl];
+    [url addValue:_feed forKey:@"format"];
     @try {
-        _xmlList = [[TuiJsonReader sharedInstance] readJsonFromURL:url withMethod:@"GET"];
+        _xmlList = [[TuiJsonReader sharedInstance] readJsonFromUrl:url];
         [[TuiJsonStorer sharedInstance] storeObject:_xmlList
                                            withName:[@"xml_list" stringByAppendingString:_feed]];
     }
     @catch (NSException *exception) {
-        NSLog(@"Could not read URL file");
+        NSLog(@"Could not read XML file");
         NSDictionary *retrieved = (NSDictionary *)[[TuiJsonStorer sharedInstance] retrieveObjectOfType:[NSDictionary class] withName:[@"xml_list" stringByAppendingString:_feed]];
         if (retrieved != nil)
             _xmlList = retrieved;
@@ -104,7 +104,7 @@
         return (NSString *)[_xmlList valueForKey:key];
     } 
     
-    [self readXmlListFromUrl:[_baseURL stringByAppendingString:_feed]];
+    [self readXmlList];
     
     if (![[TuiContextCache sharedInstance] readValueForKey:[@"xml_list" stringByAppendingString:_feed]])
         @throw [NSException exceptionWithName:@"TuiObjectNotFoundException" reason:[NSString stringWithFormat:@"Servers not available"] userInfo:nil];
@@ -129,7 +129,7 @@
 -(TuiXmlManager *)init {
     self = [super init];
     if (self) {
-        _baseURL = @"http://54.246.80.107/api/list_xml_services.php?format=";
+        _baseUrl = @"http://54.246.80.107/api/list_xml_services.php?format=$format$";
         _xmlList = [NSDictionary dictionary];
     }
     return self;
