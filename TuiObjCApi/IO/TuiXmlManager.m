@@ -33,7 +33,7 @@
 /**
  * Reads the param xml string.
  * @param key the original key.
- * @return the parametrized url as a string.
+ * @return the parametrized xml as a string.
  * @throws TuiObjectNotFoundException.
  */
 -(NSString *)readXmlForKey:(NSString *)key;
