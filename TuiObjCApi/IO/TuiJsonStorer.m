@@ -7,11 +7,11 @@
 //
 
 #import "TuiJsonStorer.h"
-#import "TuiClassManager.h"
 #import "NSObject+Tui.h"
 #import "NSDictionary+Tui.h"
 #import "TuiContextCache.h"
 #import "TuiJsonReader.h"
+#import "TuiObjectReader.h"
 
 #pragma mark - Private interface
 @interface TuiJsonStorer ()
@@ -61,7 +61,7 @@
     
     NSDictionary *jsonobject = [[TuiJsonReader sharedInstance] readJsonFromString:jsonstring];
     
-    return [[TuiJsonReader sharedInstance] readObjectOfClass:type usingDictionary:jsonobject];
+    return [[TuiObjectReader sharedInstance] readObjectOfClass:type usingDictionary:jsonobject];
 }
 
 #pragma mark - Private methods

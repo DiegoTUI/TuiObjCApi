@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		765AEBF0172E7C73009B1800 /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBEF172E7C73009B1800 /* RXMLElement.m */; };
+		765AEBF2172E7CC1009B1800 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF1172E7CC1009B1800 /* libz.dylib */; };
+		765AEBF4172E7CDD009B1800 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF3172E7CDD009B1800 /* libxml2.dylib */; };
+		765AEBF7172E8D8D009B1800 /* TuiXmlReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */; };
+		765AEBFA172E934F009B1800 /* TuiXmlReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF9172E934F009B1800 /* TuiXmlReader.m */; };
+		765AEBFD172E94DE009B1800 /* TuiObjectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBFC172E94DE009B1800 /* TuiObjectReader.m */; };
 		766711F8171FF6C800474484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766711F7171FF6C800474484 /* Foundation.framework */; };
 		76671207171FF6C800474484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76671206171FF6C800474484 /* SenTestingKit.framework */; };
 		76671209171FF6C800474484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76671208171FF6C800474484 /* UIKit.framework */; };
@@ -60,6 +66,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		765AEBEE172E7C73009B1800 /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RXMLElement.h; path = External/RaptureXML/RXMLElement.h; sourceTree = "<group>"; };
+		765AEBEF172E7C73009B1800 /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RXMLElement.m; path = External/RaptureXML/RXMLElement.m; sourceTree = "<group>"; };
+		765AEBF1172E7CC1009B1800 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		765AEBF3172E7CDD009B1800 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		765AEBF5172E8D8D009B1800 /* TuiXmlReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiXmlReaderTests.h; sourceTree = "<group>"; };
+		765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiXmlReaderTests.m; sourceTree = "<group>"; };
+		765AEBF8172E934F009B1800 /* TuiXmlReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiXmlReader.h; path = IO/TuiXmlReader.h; sourceTree = "<group>"; };
+		765AEBF9172E934F009B1800 /* TuiXmlReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiXmlReader.m; path = IO/TuiXmlReader.m; sourceTree = "<group>"; };
+		765AEBFB172E94DE009B1800 /* TuiObjectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiObjectReader.h; path = IO/TuiObjectReader.h; sourceTree = "<group>"; };
+		765AEBFC172E94DE009B1800 /* TuiObjectReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiObjectReader.m; path = IO/TuiObjectReader.m; sourceTree = "<group>"; };
 		766711F4171FF6C800474484 /* libTuiObjCApi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuiObjCApi.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		766711F7171FF6C800474484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		766711FB171FF6C800474484 /* TuiObjCApi-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TuiObjCApi-Prefix.pch"; sourceTree = "<group>"; };
@@ -114,6 +130,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765AEBF4172E7CDD009B1800 /* libxml2.dylib in Frameworks */,
+				765AEBF2172E7CC1009B1800 /* libz.dylib in Frameworks */,
 				766711F8171FF6C800474484 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,9 +150,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		765AEBEC172E7B72009B1800 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				765AEBED172E7B7D009B1800 /* RaptureXML */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		765AEBED172E7B7D009B1800 /* RaptureXML */ = {
+			isa = PBXGroup;
+			children = (
+				765AEBEE172E7C73009B1800 /* RXMLElement.h */,
+				765AEBEF172E7C73009B1800 /* RXMLElement.m */,
+			);
+			name = RaptureXML;
+			sourceTree = "<group>";
+		};
 		766711EB171FF6C800474484 = {
 			isa = PBXGroup;
 			children = (
+				765AEBF3172E7CDD009B1800 /* libxml2.dylib */,
+				765AEBF1172E7CC1009B1800 /* libz.dylib */,
 				766711F9171FF6C800474484 /* TuiObjCApi */,
 				7667120E171FF6C800474484 /* TuiObjCApiTests */,
 				766711F6171FF6C800474484 /* Frameworks */,
@@ -164,6 +201,7 @@
 		766711F9171FF6C800474484 /* TuiObjCApi */ = {
 			isa = PBXGroup;
 			children = (
+				765AEBEC172E7B72009B1800 /* External */,
 				76AF14721727CB0F00699E42 /* Model */,
 				76AF146B1727C76700699E42 /* Util */,
 				76AF14641727C19300699E42 /* Cache */,
@@ -197,6 +235,8 @@
 				769D857E1729190900E09CAE /* AtlasCallTests.m */,
 				769D858017293F3B00E09CAE /* PostCallTest.h */,
 				769D858117293F3B00E09CAE /* PostCallTest.m */,
+				765AEBF5172E8D8D009B1800 /* TuiXmlReaderTests.h */,
+				765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */,
 			);
 			path = TuiObjCApiTests;
 			sourceTree = "<group>";
@@ -229,6 +269,10 @@
 				769D8586172AB8D500E09CAE /* TuiParametrizedUrl.m */,
 				769D8588172ABFA100E09CAE /* TuiUrlManager.h */,
 				769D8589172ABFA100E09CAE /* TuiUrlManager.m */,
+				765AEBF8172E934F009B1800 /* TuiXmlReader.h */,
+				765AEBF9172E934F009B1800 /* TuiXmlReader.m */,
+				765AEBFB172E94DE009B1800 /* TuiObjectReader.h */,
+				765AEBFC172E94DE009B1800 /* TuiObjectReader.m */,
 			);
 			name = IO;
 			sourceTree = "<group>";
@@ -393,6 +437,9 @@
 				76AF14761727CB7F00699E42 /* TuiDateFormatter.m in Sources */,
 				769D8587172AB8D500E09CAE /* TuiParametrizedUrl.m in Sources */,
 				769D858A172ABFA100E09CAE /* TuiUrlManager.m in Sources */,
+				765AEBF0172E7C73009B1800 /* RXMLElement.m in Sources */,
+				765AEBFA172E934F009B1800 /* TuiXmlReader.m in Sources */,
+				765AEBFD172E94DE009B1800 /* TuiObjectReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +455,7 @@
 				769D858B172ACBE000E09CAE /* TuiParametrizedXmlTests.m in Sources */,
 				769D858C172ACBE000E09CAE /* TuiDateFormatterTests.m in Sources */,
 				769D858D172ACBE000E09CAE /* TuiXmlManagerTests.m in Sources */,
+				765AEBF7172E8D8D009B1800 /* TuiXmlReaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +540,7 @@
 				DSTROOT = /tmp/TuiObjCApi.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuiObjCApi/TuiObjCApi-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SDK_DIR)\"/usr/include/libxml2";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -504,6 +553,7 @@
 				DSTROOT = /tmp/TuiObjCApi.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuiObjCApi/TuiObjCApi-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"$(SDK_DIR)\"/usr/include/libxml2";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

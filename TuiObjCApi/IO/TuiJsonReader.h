@@ -36,13 +36,4 @@
  */
 -(NSDictionary *)readJsonFromString:(NSString *)string;
 
-/**
- * Return an object of any type read from a JSON object.
- * @param object the JSON object.
- * @param type the class of the object to create.
- * @return the newly created object.
- */
--(NSObject *)readObjectOfClass:(Class)type
-               usingDictionary:(NSDictionary *)JSONObject;
-
 @end
