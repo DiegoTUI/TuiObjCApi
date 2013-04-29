@@ -13,6 +13,8 @@
 		765AEBF7172E8D8D009B1800 /* TuiXmlReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */; };
 		765AEBFA172E934F009B1800 /* TuiXmlReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF9172E934F009B1800 /* TuiXmlReader.m */; };
 		765AEBFD172E94DE009B1800 /* TuiObjectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBFC172E94DE009B1800 /* TuiObjectReader.m */; };
+		765AEBFE172EE8F9009B1800 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF3172E7CDD009B1800 /* libxml2.dylib */; };
+		765AEBFF172EE905009B1800 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF1172E7CC1009B1800 /* libz.dylib */; };
 		766711F8171FF6C800474484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766711F7171FF6C800474484 /* Foundation.framework */; };
 		76671207171FF6C800474484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76671206171FF6C800474484 /* SenTestingKit.framework */; };
 		76671209171FF6C800474484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76671208171FF6C800474484 /* UIKit.framework */; };
@@ -27,8 +29,6 @@
 		769D1F1D1726D43A00360513 /* TuiUrlReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F1C1726D43900360513 /* TuiUrlReader.m */; };
 		769D1F201726E78900360513 /* TuiJsonReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F1F1726E78900360513 /* TuiJsonReader.m */; };
 		769D1F231726E9AC00360513 /* NSDictionary+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F221726E9AC00360513 /* NSDictionary+Tui.m */; };
-		769D858217293F3B00E09CAE /* PostCallTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D858117293F3B00E09CAE /* PostCallTest.m */; };
-		769D858417297FF300E09CAE /* AtlasCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D857E1729190900E09CAE /* AtlasCallTests.m */; };
 		769D8587172AB8D500E09CAE /* TuiParametrizedUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D8586172AB8D500E09CAE /* TuiParametrizedUrl.m */; };
 		769D858A172ABFA100E09CAE /* TuiUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D8589172ABFA100E09CAE /* TuiUrlManager.m */; };
 		769D858B172ACBE000E09CAE /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
@@ -140,6 +140,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				765AEBFF172EE905009B1800 /* libz.dylib in Frameworks */,
+				765AEBFE172EE8F9009B1800 /* libxml2.dylib in Frameworks */,
 				76671207171FF6C800474484 /* SenTestingKit.framework in Frameworks */,
 				76671209171FF6C800474484 /* UIKit.framework in Frameworks */,
 				7667120A171FF6C800474484 /* Foundation.framework in Frameworks */,
@@ -450,8 +452,6 @@
 				7667122D172527FA00474484 /* NSString+Tui.m in Sources */,
 				76AF147D1728041D00699E42 /* NSDictionary+Tui.m in Sources */,
 				76AF147E1728042000699E42 /* NSObject+Tui.m in Sources */,
-				769D858217293F3B00E09CAE /* PostCallTest.m in Sources */,
-				769D858417297FF300E09CAE /* AtlasCallTests.m in Sources */,
 				769D858B172ACBE000E09CAE /* TuiParametrizedXmlTests.m in Sources */,
 				769D858C172ACBE000E09CAE /* TuiDateFormatterTests.m in Sources */,
 				769D858D172ACBE000E09CAE /* TuiXmlManagerTests.m in Sources */,
