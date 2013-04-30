@@ -71,7 +71,7 @@
     interval = [start timeIntervalSinceNow];
     NSLog (@"Xml parsing took %f seconds", interval);
     NSLog(@"Number of Hotels retrieved from Atlas: %d", [hotels count]);
-    //NSLog(@"Hotels retrieved: %@", hotels);
+    NSLog(@"Hotels retrieved: %@", hotels);
     STAssertTrue([hotels count] > 750, @"Too few hotels retrieves from Atlas: %d", [hotels count]);
     for (NSDictionary *hotel in hotels) {
         [self checkDictionary:hotel withDescriptionMap:_hotelListMap];
