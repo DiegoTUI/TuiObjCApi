@@ -101,10 +101,6 @@
 		769D1F1F1726E78900360513 /* TuiJsonReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiJsonReader.m; path = IO/TuiJsonReader.m; sourceTree = "<group>"; };
 		769D1F211726E9AC00360513 /* NSDictionary+Tui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Tui.h"; path = "Categories/NSDictionary+Tui.h"; sourceTree = "<group>"; };
 		769D1F221726E9AC00360513 /* NSDictionary+Tui.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Tui.m"; path = "Categories/NSDictionary+Tui.m"; sourceTree = "<group>"; };
-		769D857D1729190900E09CAE /* AtlasCallTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasCallTests.h; sourceTree = "<group>"; };
-		769D857E1729190900E09CAE /* AtlasCallTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtlasCallTests.m; sourceTree = "<group>"; };
-		769D858017293F3B00E09CAE /* PostCallTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCallTest.h; sourceTree = "<group>"; };
-		769D858117293F3B00E09CAE /* PostCallTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCallTest.m; sourceTree = "<group>"; };
 		769D8585172AB8D500E09CAE /* TuiParametrizedUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiParametrizedUrl.h; path = IO/TuiParametrizedUrl.h; sourceTree = "<group>"; };
 		769D8586172AB8D500E09CAE /* TuiParametrizedUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TuiParametrizedUrl.m; path = IO/TuiParametrizedUrl.m; sourceTree = "<group>"; };
 		769D8588172ABFA100E09CAE /* TuiUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TuiUrlManager.h; path = IO/TuiUrlManager.h; sourceTree = "<group>"; };
@@ -233,10 +229,6 @@
 				76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */,
 				76AF147A1727F50400699E42 /* TuiXmlManagerTests.h */,
 				76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */,
-				769D857D1729190900E09CAE /* AtlasCallTests.h */,
-				769D857E1729190900E09CAE /* AtlasCallTests.m */,
-				769D858017293F3B00E09CAE /* PostCallTest.h */,
-				769D858117293F3B00E09CAE /* PostCallTest.m */,
 				765AEBF5172E8D8D009B1800 /* TuiXmlReaderTests.h */,
 				765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */,
 			);

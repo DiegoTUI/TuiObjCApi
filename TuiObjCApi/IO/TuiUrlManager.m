@@ -53,7 +53,7 @@
                                            withName:@"url_list"];
     }
     @catch (NSException *exception) {
-        NSLog(@"Could not read XML file");
+        NSLog(@"Could not read URL file");
         NSDictionary *retrieved = (NSDictionary *)[[TuiJsonStorer sharedInstance] retrieveObjectOfType:[NSDictionary class] withName:@"url_list"];
         if (retrieved != nil)
             _urlList = retrieved;
