@@ -63,4 +63,8 @@
     return result;
 }
 
+-(NSString *)listify {
+    return [(NSString *)[[self componentsSeparatedByString:@"."] lastObject] stringByAppendingString:@"List"];
+}
+
 @end

@@ -54,4 +54,10 @@
  */
 -(NSString *)urlEncodedString;
 
+/**
+ * Split the string using the dot separator and adds "List" at the end
+ * @return the listified string
+ */
+-(NSString *)listify;
+
 @end
