@@ -8,12 +8,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TuiObjCApiTests/TuiXmlReaderTests.m"
-         timestampString = "390239025.588827"
+         timestampString = "390321685.315701"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
-         landmarkName = "-testTicketAvailXmlString"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
+         landmarkName = "-testTicketClassificationListXmlString"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TuiObjCApi/IO/TuiXmlReader.m"
+         timestampString = "390324809.577198"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
+         landmarkName = "-produceObjectForElement:withDescriptionMap:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TuiObjCApi/IO/TuiXmlReader.m"
+         timestampString = "390324809.577198"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
+         landmarkName = "-readValueForKey:fromXml:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
