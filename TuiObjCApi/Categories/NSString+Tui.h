@@ -42,6 +42,24 @@
 -(NSString *)stringByUnescapingISO8859;
 
 /**
+ * Produces a new random string with a given length
+ * @return the string unescaped.
+ */
++(NSString *)randomStringWithLength:(NSInteger)length;
+
+/**
+ * Produces a new crappy random string with a given length
+ * @return the string unescaped.
+ */
++(NSString *)crappyRandomStringWithLength:(NSInteger)length;
+
+/**
+ * Returns the current alphabet
+ * @return current alphabet
+ */
++(NSString *)getCurrentAlphabet;
+
+/**
  * Transform a server key (like activity_id) into a Java-like key in camelCase (like activityid).
  * @param key the original key (e.g. activity_id).
  * @return the Java-like key (e.g. activityId).

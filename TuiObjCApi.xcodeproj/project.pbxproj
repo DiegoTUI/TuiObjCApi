@@ -10,7 +10,6 @@
 		765AEBF0172E7C73009B1800 /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBEF172E7C73009B1800 /* RXMLElement.m */; };
 		765AEBF2172E7CC1009B1800 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF1172E7CC1009B1800 /* libz.dylib */; };
 		765AEBF4172E7CDD009B1800 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF3172E7CDD009B1800 /* libxml2.dylib */; };
-		765AEBF7172E8D8D009B1800 /* TuiXmlReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */; };
 		765AEBFA172E934F009B1800 /* TuiXmlReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF9172E934F009B1800 /* TuiXmlReader.m */; };
 		765AEBFD172E94DE009B1800 /* TuiObjectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBFC172E94DE009B1800 /* TuiObjectReader.m */; };
 		765AEBFE172EE8F9009B1800 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF3172E7CDD009B1800 /* libxml2.dylib */; };
@@ -31,9 +30,6 @@
 		769D1F231726E9AC00360513 /* NSDictionary+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F221726E9AC00360513 /* NSDictionary+Tui.m */; };
 		769D8587172AB8D500E09CAE /* TuiParametrizedUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D8586172AB8D500E09CAE /* TuiParametrizedUrl.m */; };
 		769D858A172ABFA100E09CAE /* TuiUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D8589172ABFA100E09CAE /* TuiUrlManager.m */; };
-		769D858B172ACBE000E09CAE /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
-		769D858C172ACBE000E09CAE /* TuiDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */; };
-		769D858D172ACBE000E09CAE /* TuiXmlManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */; };
 		76AF14671727C1E900699E42 /* TuiContextCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14661727C1E900699E42 /* TuiContextCache.m */; };
 		76AF146A1727C68300699E42 /* TuiJsonStorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14691727C68300699E42 /* TuiJsonStorer.m */; };
 		76AF146E1727C7A700699E42 /* TuiClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF146D1727C7A700699E42 /* TuiClassManager.m */; };
@@ -41,6 +37,9 @@
 		76AF14761727CB7F00699E42 /* TuiDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14751727CB7F00699E42 /* TuiDateFormatter.m */; };
 		76AF147D1728041D00699E42 /* NSDictionary+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F221726E9AC00360513 /* NSDictionary+Tui.m */; };
 		76AF147E1728042000699E42 /* NSObject+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14701727C94100699E42 /* NSObject+Tui.m */; };
+		76B649BE175603CB00B415CD /* TuiRandomIdsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B649BD175603CB00B415CD /* TuiRandomIdsTest.m */; };
+		76B649C1175607AC00B415CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B649BF1756077900B415CD /* Security.framework */; };
+		76B649C21756090700B415CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B649BF1756077900B415CD /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +118,9 @@
 		76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiDateFormatterTests.m; sourceTree = "<group>"; };
 		76AF147A1727F50400699E42 /* TuiXmlManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiXmlManagerTests.h; sourceTree = "<group>"; };
 		76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiXmlManagerTests.m; sourceTree = "<group>"; };
+		76B649BC175603CB00B415CD /* TuiRandomIdsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiRandomIdsTest.h; sourceTree = "<group>"; };
+		76B649BD175603CB00B415CD /* TuiRandomIdsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiRandomIdsTest.m; sourceTree = "<group>"; };
+		76B649BF1756077900B415CD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B649C1175607AC00B415CD /* Security.framework in Frameworks */,
 				765AEBF4172E7CDD009B1800 /* libxml2.dylib in Frameworks */,
 				765AEBF2172E7CC1009B1800 /* libz.dylib in Frameworks */,
 				766711F8171FF6C800474484 /* Foundation.framework in Frameworks */,
@@ -136,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B649C21756090700B415CD /* Security.framework in Frameworks */,
 				765AEBFF172EE905009B1800 /* libz.dylib in Frameworks */,
 				765AEBFE172EE8F9009B1800 /* libxml2.dylib in Frameworks */,
 				76671207171FF6C800474484 /* SenTestingKit.framework in Frameworks */,
@@ -189,6 +193,7 @@
 		766711F6171FF6C800474484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76B649BF1756077900B415CD /* Security.framework */,
 				766711F7171FF6C800474484 /* Foundation.framework */,
 				76671206171FF6C800474484 /* SenTestingKit.framework */,
 				76671208171FF6C800474484 /* UIKit.framework */,
@@ -231,6 +236,8 @@
 				76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */,
 				765AEBF5172E8D8D009B1800 /* TuiXmlReaderTests.h */,
 				765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */,
+				76B649BC175603CB00B415CD /* TuiRandomIdsTest.h */,
+				76B649BD175603CB00B415CD /* TuiRandomIdsTest.m */,
 			);
 			path = TuiObjCApiTests;
 			sourceTree = "<group>";
@@ -444,10 +451,7 @@
 				7667122D172527FA00474484 /* NSString+Tui.m in Sources */,
 				76AF147D1728041D00699E42 /* NSDictionary+Tui.m in Sources */,
 				76AF147E1728042000699E42 /* NSObject+Tui.m in Sources */,
-				769D858B172ACBE000E09CAE /* TuiParametrizedXmlTests.m in Sources */,
-				769D858C172ACBE000E09CAE /* TuiDateFormatterTests.m in Sources */,
-				769D858D172ACBE000E09CAE /* TuiXmlManagerTests.m in Sources */,
-				765AEBF7172E8D8D009B1800 /* TuiXmlReaderTests.m in Sources */,
+				76B649BE175603CB00B415CD /* TuiRandomIdsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

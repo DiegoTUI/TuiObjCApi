@@ -6,7 +6,11 @@
 //  Copyright (c) 2013 Tui Travel A&D. All rights reserved.
 //
 
+#define ARC4RANDOM_MAX      0x100000000
+
 #import "NSString+Tui.h"
+#import <Security/SecRandom.h>
+#import <stdlib.h>
 
 @implementation NSString (Tui)
 
@@ -36,6 +40,34 @@
     value = [value stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
     value = [value stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
     return value;
+}
+
++(NSString *)randomStringWithLength:(NSInteger)length {
+    NSString *alphabet = [NSString getCurrentAlphabet];
+    NSMutableString *s = [NSMutableString stringWithCapacity:length];
+    for (NSUInteger i = 0; i < length; i++) {
+        u_int32_t randomResult = 0;
+        int result = SecRandomCopyBytes(kSecRandomDefault, sizeof(int), (uint8_t*)&randomResult);
+        if (result != 0)
+            randomResult = arc4random();
+        u_int32_t r = randomResult % [alphabet length];
+        unichar c = [alphabet characterAtIndex:r];
+        [s appendFormat:@"%C", c];
+    }
+    return [NSString stringWithString:s];
+}
+
++(NSString *)crappyRandomStringWithLength:(NSInteger)length {
+    NSString *alphabet = [NSString getCurrentAlphabet];
+    NSString *result = @"";
+    for (NSInteger i=0; i<length; i++) {
+        result = [result stringByAppendingString:[alphabet substringWithRange:NSMakeRange(floorf(((double)arc4random()/ARC4RANDOM_MAX)*[alphabet length]), 1)]];
+    }
+    return result;
+}
+
++(NSString *)getCurrentAlphabet {
+    return @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 }
 
 -(NSString *)toCamelCase {
