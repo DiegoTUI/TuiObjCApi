@@ -43,6 +43,8 @@
  */
 -(NSDictionary *)produceObjectForElement:(RXMLElement *)element
                       withDescriptionMap:(NSArray *)descriptionMap;
+-(NSDictionary *)produceObjectForElement2:(RXMLElement *)element
+                      withDescriptionMap:(NSArray *)descriptionMap;
 
 @end
 
@@ -68,11 +70,11 @@
     RXMLElement *xml = [RXMLElement elementFromXMLString:xmlString encoding:NSUTF8StringEncoding];
     if (key.length > 0) {
         [xml iterate:key usingBlock:^(RXMLElement *element) {
-            NSDictionary *jsonobject = [self produceObjectForElement:element withDescriptionMap:descriptionMap];
+            NSDictionary *jsonobject = [self produceObjectForElement2:element withDescriptionMap:descriptionMap];
             [result addObject:jsonobject];
         }];
     } else {
-        [result addObject:[self produceObjectForElement:xml
+        [result addObject:[self produceObjectForElement2:xml
                                      withDescriptionMap:descriptionMap]];
     }
     
@@ -119,6 +121,46 @@
         return [key substringFromIndex:rng.location+1];
     }
     return @"";
+}
+
+-(NSDictionary *)produceObjectForElement2:(RXMLElement *)element
+                      withDescriptionMap:(NSArray *)descriptionMap {
+    //create the object to return
+    NSMutableDictionary *jsonobject = [NSMutableDictionary dictionary];
+    //Go through the elements in the description map
+    for (id item in descriptionMap) {
+        if ([item isKindOfClass:[NSString class]]) {    //If it's a string, look for the value in the xml and add it to the result
+            NSString *content = [element child:item].text;
+            id value = content==nil ? [NSNull null] : content;
+            [jsonobject setValue:value forKey:item];
+        }
+        else if ([item isKindOfClass:[NSDictionary class]]) {   //If it's a dictionary, explore it
+            //make sure that the dictionary has exactly 1 key
+            if ([[item allKeys] count] != 1)
+                @throw [NSException exceptionWithName:@"TuiInvalidDescriptionMapException" reason:[NSString stringWithFormat:@"Invalid description map. Too many keys in dictionary: %@", [item allKeys]] userInfo:item];
+            //there is only one key. Iterate it
+            for (NSString *fieldname in item) {
+                __block id dictvalue = item[fieldname];
+                if ([dictvalue isKindOfClass:[NSArray class]]) { //The dictionary encloses an array. It's a list
+                    __block NSMutableArray *sublist = [NSMutableArray array];
+                    //We have to iterate the field name
+                    [element iterate:fieldname usingBlock:^(RXMLElement *arrayelement) {
+                        [sublist addObject:[self produceObjectForElement2:arrayelement withDescriptionMap:dictvalue]];
+                    }];
+                    //array completed, let's add it to the dictionary
+                    [jsonobject setValue:sublist forKey:[fieldname listify]];
+                }
+                //The dictionary encloses a string
+                else if ([dictvalue isKindOfClass:[NSString class]]) {
+                    NSString *content = [self readValueForKey:dictvalue fromXml:element];
+                    id value = content==nil ? [NSNull null] : content;
+                    [jsonobject setValue:value forKey:fieldname];
+                }
+            }
+        }
+    }
+    
+    return jsonobject;
 }
 
 -(NSDictionary *)produceObjectForElement:(RXMLElement *)element

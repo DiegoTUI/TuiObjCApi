@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760C352B17606E160026BAAE /* TuiXmlReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */; };
+		760C352C1760834F0026BAAE /* TuiRandomIdsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B649BD175603CB00B415CD /* TuiRandomIdsTest.m */; };
+		760C352D176083550026BAAE /* TuiXmlManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */; };
+		760C352E1760835A0026BAAE /* TuiDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */; };
+		760C352F1760835F0026BAAE /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
 		765AEBF0172E7C73009B1800 /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBEF172E7C73009B1800 /* RXMLElement.m */; };
 		765AEBF2172E7CC1009B1800 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF1172E7CC1009B1800 /* libz.dylib */; };
 		765AEBF4172E7CDD009B1800 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF3172E7CDD009B1800 /* libxml2.dylib */; };
@@ -37,7 +42,6 @@
 		76AF14761727CB7F00699E42 /* TuiDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14751727CB7F00699E42 /* TuiDateFormatter.m */; };
 		76AF147D1728041D00699E42 /* NSDictionary+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 769D1F221726E9AC00360513 /* NSDictionary+Tui.m */; };
 		76AF147E1728042000699E42 /* NSObject+Tui.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14701727C94100699E42 /* NSObject+Tui.m */; };
-		76B649BE175603CB00B415CD /* TuiRandomIdsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B649BD175603CB00B415CD /* TuiRandomIdsTest.m */; };
 		76B649C1175607AC00B415CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B649BF1756077900B415CD /* Security.framework */; };
 		76B649C21756090700B415CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B649BF1756077900B415CD /* Security.framework */; };
 /* End PBXBuildFile section */
@@ -451,7 +455,11 @@
 				7667122D172527FA00474484 /* NSString+Tui.m in Sources */,
 				76AF147D1728041D00699E42 /* NSDictionary+Tui.m in Sources */,
 				76AF147E1728042000699E42 /* NSObject+Tui.m in Sources */,
-				76B649BE175603CB00B415CD /* TuiRandomIdsTest.m in Sources */,
+				760C352B17606E160026BAAE /* TuiXmlReaderTests.m in Sources */,
+				760C352C1760834F0026BAAE /* TuiRandomIdsTest.m in Sources */,
+				760C352D176083550026BAAE /* TuiXmlManagerTests.m in Sources */,
+				760C352E1760835A0026BAAE /* TuiDateFormatterTests.m in Sources */,
+				760C352F1760835F0026BAAE /* TuiParametrizedXmlTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

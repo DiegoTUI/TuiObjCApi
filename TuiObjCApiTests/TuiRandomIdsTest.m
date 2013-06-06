@@ -12,7 +12,7 @@
 @implementation TuiRandomIdsTest
 
 -(void)testDifferentIdsGoodAlgorithm {
-    NSUInteger numberofids = 1000000;
+    NSUInteger numberofids = 10000;
     NSMutableSet *set = [NSMutableSet set];
     for (NSInteger i=0; i<numberofids; i++) {
         NSString *stringtoadd = [NSString randomStringWithLength:8];
@@ -23,7 +23,7 @@
 }
 
 -(void)testDifferentRandomIdsCrappyAlgorithm {
-    NSUInteger numberofids = 1000000;
+    NSUInteger numberofids = 10000;
     NSMutableSet *set = [NSMutableSet set];
     for (NSInteger i=0; i<numberofids; i++) {
         NSString *stringtoadd = [NSString crappyRandomStringWithLength:8];
