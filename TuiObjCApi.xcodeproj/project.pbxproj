@@ -22,7 +22,6 @@
 		765AEBFF172EE905009B1800 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF1172E7CC1009B1800 /* libz.dylib */; };
 		766711F8171FF6C800474484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766711F7171FF6C800474484 /* Foundation.framework */; };
 		76671207171FF6C800474484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76671206171FF6C800474484 /* SenTestingKit.framework */; };
-		76671209171FF6C800474484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76671208171FF6C800474484 /* UIKit.framework */; };
 		7667120A171FF6C800474484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766711F7171FF6C800474484 /* Foundation.framework */; };
 		7667120D171FF6C800474484 /* libTuiObjCApi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 766711F4171FF6C800474484 /* libTuiObjCApi.a */; };
 		76671213171FF6C800474484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76671211171FF6C800474484 /* InfoPlist.strings */; };
@@ -87,7 +86,6 @@
 		766711FB171FF6C800474484 /* TuiObjCApi-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TuiObjCApi-Prefix.pch"; sourceTree = "<group>"; };
 		76671205171FF6C800474484 /* TuiObjCApiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuiObjCApiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76671206171FF6C800474484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		76671208171FF6C800474484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		76671210171FF6C800474484 /* TuiObjCApiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TuiObjCApiTests-Info.plist"; sourceTree = "<group>"; };
 		76671212171FF6C800474484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7667121F171FFAB200474484 /* TuiDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiDebug.h; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				765AEBFF172EE905009B1800 /* libz.dylib in Frameworks */,
 				765AEBFE172EE8F9009B1800 /* libxml2.dylib in Frameworks */,
 				76671207171FF6C800474484 /* SenTestingKit.framework in Frameworks */,
-				76671209171FF6C800474484 /* UIKit.framework in Frameworks */,
 				7667120A171FF6C800474484 /* Foundation.framework in Frameworks */,
 				7667120D171FF6C800474484 /* libTuiObjCApi.a in Frameworks */,
 			);
@@ -203,7 +200,6 @@
 				76B649BF1756077900B415CD /* Security.framework */,
 				766711F7171FF6C800474484 /* Foundation.framework */,
 				76671206171FF6C800474484 /* SenTestingKit.framework */,
-				76671208171FF6C800474484 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

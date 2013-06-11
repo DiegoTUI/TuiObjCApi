@@ -10,7 +10,6 @@
 #import "TuiJsonReader.h"
 #import "TuiJsonStorer.h"
 #import "TuiContextCache.h"
-#import "TuiParametrizedXml.h"
 #import "TuiParametrizedUrl.h"
 #import "NSDictionary+Tui.h"
 
