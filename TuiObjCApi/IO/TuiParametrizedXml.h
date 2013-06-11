@@ -13,7 +13,7 @@
  * There are to init options:
  *      - Through a parametrized Json string.
  *          These parameters are written into the JSON and transtated into a XML string for queries
- *          The "@" prefix is used for attributes, the "#" field is used for value.
+ *          The "@" prefix is used for attributes, the "#value" field is used for value, the "#list" field is used for lists.
  *      - Through a parametrized Xml string.
  * In all cases it produces an XML string ready to send to a query.
  * @author diego

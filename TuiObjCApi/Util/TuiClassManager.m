@@ -52,7 +52,7 @@
 +(NSString *)getTypeOfProperty:(NSString *)propertyName
                      forObject:(NSObject *)object {
     if (![object respondsToSelector:NSSelectorFromString(propertyName)])
-        return @"MIBObjectDoesNotRespondToProperty";
+        return @"TuiObjectDoesNotRespondToProperty";
     
     const char * type = property_getAttributes(class_getProperty([object class], [propertyName UTF8String]));
     NSString * typeString = [NSString stringWithUTF8String:type];

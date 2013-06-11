@@ -38,7 +38,8 @@
                         @"Credentials_User":@"ISLAS",
                         @"Credentials_Password":@"ISLAS",
                         @"Destination_code":@"PMI",
-                        @"Destination_type":@"SIMPLE"};
+                        @"Destination_type":@"SIMPLE",
+                        @"Destination_Name":@"Palma"};
     NSDate *datefrom = [NSDate date];
     NSDateComponents *datecomponents = [[NSDateComponents alloc] init];
     datecomponents.day = 2;

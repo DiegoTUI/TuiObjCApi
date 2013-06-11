@@ -8,6 +8,7 @@
 
 #import "TuiParametrizedXml.h"
 #import "NSString+Tui.h"
+#import "NSDictionary+Tui.h"
 
 #pragma mark - Private interface
 @interface TuiParametrizedXml ()
@@ -22,25 +23,10 @@
 @property (strong, nonatomic) NSString *xmlString;
 
 /**
- * Iterative method that fills the private property xmlString
- * @param name the name of the element to add to the XML string.
- * @param body the dictionary that defines the element to be parsed.
- */
--(void)xmlfyElementWithName:(NSString *)name
-                    andBody:(NSDictionary *)body;
-
-/**
  * Gets the baseString and replaces all the parameters
  * @return the base string with the parameters replaced.
  */
 -(NSString *)replaceAll;
-
-/**
- * Produces an xml string from a properly formatted JSON Dictionary
- * The "@" prefix is used for attributes, the "#" field is used for value.
- * @return the json string with the parameters replaced.
- */
--(NSString *)produceXmlWithJson:(NSDictionary *)xmlJson;
 
 @end
 
@@ -101,7 +87,8 @@
         if (jsonError)
             @throw [NSException exceptionWithName:@"TuiInvalidJsonException" reason:[NSString stringWithFormat:@"Exception parsing JSON from string %@",replacedString] userInfo:[jsonError userInfo]];
         
-        return [self produceXmlWithJson:replacedJson];
+        //return [self produceXmlWithJson:replacedJson];
+        return [replacedJson produceXml];
     }
     //We are dealing with XML
     return replacedString;
@@ -114,46 +101,6 @@
 }
 
 #pragma mark - Private methods
--(void)xmlfyElementWithName:(NSString *)name
-                    andBody:(NSDictionary *)body {
-    NSMutableArray *items = [[body allKeys] mutableCopy];
-    if (name != nil) { //don't do this if there is a list
-        //title
-        _xmlString = [NSString stringWithFormat:@"%@<%@", _xmlString, name];
-        //attributes
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith %@", @"@"];
-        NSArray *attributes = [items filteredArrayUsingPredicate:predicate];
-        for (NSString *attribute in attributes) {
-            _xmlString = [NSString stringWithFormat:@"%@ %@=\"%@\"", _xmlString, [attribute substringFromIndex:1], body[attribute]];
-            [items removeObject:attribute];
-        }
-        _xmlString = [NSString stringWithFormat:@"%@>", _xmlString];
-        //value
-        if ([body objectForKey:@"#"] != nil) { //there is a value to add
-            _xmlString = [NSString stringWithFormat:@"%@%@", _xmlString, body[@"#"]];
-            [items removeObject:@"#"];
-        }
-    }
-    //elements, that is, the rest of stuff in items
-    for (NSString *element in items) {
-        if ([body[element] isKindOfClass:[NSDictionary class]]) { //it's a dictionary
-            [self xmlfyElementWithName:element andBody:body[element]];
-        }
-        else if ([body[element] isKindOfClass:[NSArray class]]) { //it's an array
-            _xmlString = [NSString stringWithFormat:@"%@<%@>", _xmlString, element];
-            for (NSDictionary *item in body[element]) {
-                [self xmlfyElementWithName:nil andBody:item];
-            }
-            _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, element];
-        }
-        else  { //other
-            [self xmlfyElementWithName:element andBody:[NSDictionary dictionary]];
-        }
-    }
-    //close tag. Only when the name is not nil.
-    if (name != nil)
-        _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, name];
-}
 
 -(NSString *)replaceAll {
     NSString *result = _baseJson ? _baseJson : _baseXml;
@@ -166,29 +113,6 @@
     }
     
     return result;
-}
-
--(NSString *)produceXmlWithJson:(NSDictionary *)xmlJson
-{
-    _xmlString = @"";
-    
-    for (NSString *element in xmlJson) {
-        if ([xmlJson[element] isKindOfClass:[NSDictionary class]]) { //It's a dictionary
-            [self xmlfyElementWithName:element andBody:xmlJson[element]];
-        }
-        else if ([xmlJson[element] isKindOfClass:[NSArray class]]) { //It's an array
-            _xmlString = [NSString stringWithFormat:@"%@<%@>", _xmlString, element];
-            for (NSDictionary *item in xmlJson[element]) {
-                [self xmlfyElementWithName:nil andBody:item];
-            }
-            _xmlString = [NSString stringWithFormat:@"%@</%@>", _xmlString, element];
-        }
-        else  { //other
-            [self xmlfyElementWithName:element andBody:[NSDictionary dictionary]];
-        }
-    }
-    
-    return _xmlString;
 }
 
 @end

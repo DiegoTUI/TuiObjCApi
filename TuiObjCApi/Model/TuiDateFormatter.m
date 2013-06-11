@@ -36,7 +36,7 @@
 {
     if (date == nil || date.length != 10)
     {
-        @throw [NSException exceptionWithName:@"MIBInvalidDateException" reason:@"Invalid date. It should be yyyy-mm-dd" userInfo:nil];
+        @throw [NSException exceptionWithName:@"TuiInvalidDateException" reason:@"Invalid date. It should be yyyy-mm-dd" userInfo:nil];
     }
     
     NSDate *nsdate = [self.dateFormat dateFromString:date];
@@ -55,7 +55,7 @@
 {
     if (date == nil)
     {
-        @throw [NSException exceptionWithName:@"MIBInvalidDateException" reason:@"Invalid date. It is null" userInfo:nil];
+        @throw [NSException exceptionWithName:@"TuiInvalidDateException" reason:@"Invalid date. It is null" userInfo:nil];
     }
     
     NSDate *nsdate = [self.isoFormat dateFromString:[date stringByReplacingOccurrencesOfString:@"+00:00" withString:@"+0000"]];
@@ -80,7 +80,7 @@
 {
     if (date == nil || date.length != 10)
     {
-        @throw [NSException exceptionWithName:@"MIBInvalidDateException" reason:@"Invalid date. It should be yyyy-mm-dd" userInfo:nil];
+        @throw [NSException exceptionWithName:@"TuiInvalidDateException" reason:@"Invalid date. It should be yyyy-mm-dd" userInfo:nil];
     }
     
     NSInteger year = [[date substringToIndex:4] intValue];
@@ -102,7 +102,7 @@
 {
     if (date == nil || date.length != 10)
     {
-        @throw [NSException exceptionWithName:@"MIBInvalidDateException" reason:@"Invalid date. It should be yyyy-mm-dd" userInfo:nil];
+        @throw [NSException exceptionWithName:@"TuiInvalidDateException" reason:@"Invalid date. It should be yyyy-mm-dd" userInfo:nil];
     }
     
     NSInteger year = [[date substringToIndex:4] intValue];

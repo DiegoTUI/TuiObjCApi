@@ -36,7 +36,7 @@
  * and it it does, returns the type of that property
  * @param the name of the property
  * @param the object you want to check.
- * @return the type of the property - @"MIBObjectDoesNotRespondToProperty" is the object does not respond to the property
+ * @return the type of the property - @"TuiObjectDoesNotRespondToProperty" is the object does not respond to the property
  */
 +(NSString *)getTypeOfProperty:(NSString *)propertyName
                      forObject:(NSObject *)object;

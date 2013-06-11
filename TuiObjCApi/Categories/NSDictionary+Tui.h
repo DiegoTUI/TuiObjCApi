@@ -29,4 +29,13 @@
  */
 -(NSString *)toJsonString;
 
+/**
+ * Produces an xml string from a properly formatted JSON Dictionary
+ * The "@" prefix is used for attributes, the "#value" field is used for value, the "#list" field for lists
+ * Check TuiDictionaryTests for an example
+ * @return the xml string produced.
+ * @throws TuiInvalidNodeException
+ */
+-(NSString *)produceXml;
+
 @end
