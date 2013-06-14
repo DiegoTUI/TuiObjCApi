@@ -39,7 +39,8 @@
     
     STAssertTrue([date isEqualToString:@"1992-06-05"],@"Regular date calculated is wrong");
     STAssertTrue([isodate rangeOfString:@"1992-06-05T17:00:00"].location != NSNotFound,@"ISO date calculated is wrong");
-    STAssertTrue([isodate rangeOfString:@"GMT"].location != NSNotFound,@"ISO date calculated is using wrong timezone (other than GMT)");
+    STAssertTrue([isodate rangeOfString:@"GMT"].location != NSNotFound ||
+                 [isodate rangeOfString:@"utc"].location != NSNotFound,@"ISO date calculated is using wrong timezone (other than GMT/UTC)");
     
     NSString *shortdate = [[TuiDateFormatter sharedInstance] getShortDateFromString:date];
     NSString *longdate = [[TuiDateFormatter sharedInstance] getLongDateFromString:date];

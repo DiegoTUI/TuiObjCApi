@@ -136,7 +136,7 @@
     
     _ticketAvailMap =@[@{@"DateFrom":@"DateFrom.@date"},
                        @{@"DateTo":@"DateTo.@date"},
-                       @"Currency",
+                       @{@"Currency":@"Currency"},
                        @{@"CurrencyCode":@"Currency.@code"},
                        @{@"Name":@"TicketInfo.Name"},
                        @{@"TicketInfo.DescriptionList.Description":@[@{@"Description":@""},
