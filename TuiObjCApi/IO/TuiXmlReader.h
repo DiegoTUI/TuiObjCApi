@@ -29,10 +29,10 @@
  * @param xmlString the xml string
  * @param key the object to look for in the xml string (e.g. "Hotel")
  * @param descriptionMap the map describing wich fields should be read from the xml
- * @return a JSON object with the contents of the xml as specified by de description map.
+ * @return a JSON object or a JSON array with the contents of the xml as specified by de description map.
  * @throws TuiInvalidDescriptionMapException
  */
--(NSArray *)readObjectsFromXmlString:(NSString *)xmlString
+-(id)readObjectsFromXmlString:(NSString *)xmlString
                                lookingFor:(NSString *)key
                       usingDescriptionMap:(NSArray *)descriptionMap;
 

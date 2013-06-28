@@ -62,10 +62,10 @@
     return sharedInstance;
 }
 
--(NSArray *)readObjectsFromXmlString:(NSString *)xmlString
+-(id)readObjectsFromXmlString:(NSString *)xmlString
                           lookingFor:(NSString *)key
                  usingDescriptionMap:(NSArray *)descriptionMap {
-    __block NSMutableArray *result = [NSMutableArray array];
+    __block id result = [NSMutableArray array];
     //Read the xml
     RXMLElement *xml = [RXMLElement elementFromXMLString:xmlString encoding:NSUTF8StringEncoding];
     if (key.length > 0) {
@@ -74,8 +74,10 @@
             [result addObject:jsonobject];
         }];
     } else {
-        [result addObject:[self produceObjectForElement2:xml
-                                     withDescriptionMap:descriptionMap]];
+        /*[result addObject:[self produceObjectForElement2:xml
+                                     withDescriptionMap:descriptionMap]];*/
+        result = [self produceObjectForElement2:xml
+                                      withDescriptionMap:descriptionMap];
     }
     
     return (NSArray *)result;

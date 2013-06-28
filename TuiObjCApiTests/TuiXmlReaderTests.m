@@ -194,7 +194,8 @@
 }
 
 -(void)testTicketAvailXmlString {
-    NSArray *tickets = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketAvailXmlString lookingFor:@"ServiceTicket" usingDescriptionMap:_ticketAvailMap];
+    id tickets = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketAvailXmlString lookingFor:@"ServiceTicket" usingDescriptionMap:_ticketAvailMap];
+    STAssertTrue([tickets isKindOfClass:[NSArray class]], @"Wrong type returned from TuiXmlReader");
     STAssertTrue([tickets count] == 2, @"Wrong number of tickets parsed. Should be 2, and it is %d", [tickets count]);
     STAssertTrue([tickets[0][@"DateFrom"] isEqualToString:@"DateFrom1"], @"Wrong value for DateFrom in element 0: %@", tickets[0][@"DateFrom"]);
     STAssertTrue([tickets[0][@"DateTo"] isEqualToString:@"DateTo1"], @"Wrong value for DateTo in element 0: %@", tickets[0][@"DateTo"]);
@@ -233,6 +234,47 @@
 }
 
 -(void)testTicketAvailXmlStringAlt {
+    id tickets = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketAvailXmlString lookingFor:@"" usingDescriptionMap:_ticketAvailMapAlt];
+    STAssertTrue([tickets isKindOfClass:[NSDictionary class]], @"Wrong type returned from TuiXmlReader");
+    STAssertTrue([tickets[@"TotalItems"] isEqualToString:@"27"], @"Wrong value for TotalItems: %@", tickets[0][@"TotalItems"]);
+    STAssertTrue([tickets[@"ServiceTicketList"] count] == 2, @"Wrong number of tickets parsed. Should be 2, and it is %d", [tickets count]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"DateFrom"] isEqualToString:@"DateFrom1"], @"Wrong value for DateFrom in element 0: %@", tickets[0][@"ServiceTicketList"][0][@"DateFrom"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"DateTo"] isEqualToString:@"DateTo1"], @"Wrong value for DateTo in element 0: %@", tickets[0][@"ServiceTicketList"][0][@"DateTo"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"DateFrom"] isEqualToString:@"DateFrom2"], @"Wrong value for DateFrom in element 1: %@", tickets[0][@"ServiceTicketList"][1][@"DateFrom"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"DateTo"] isEqualToString:@"DateTo2"], @"Wrong value for DateTo in element 1: %@", tickets[0][@"ServiceTicketList"][1][@"DateTo"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"Currency"] isEqualToString:@"Euro1"], @"Wrong value for Currency in element 0: %@", tickets[0][@"ServiceTicketList"][0][@"Currency"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"CurrencyCode"] isEqualToString:@"EUR1"], @"Wrong value for CurrencyCode in element 0: %@", tickets[0][@"ServiceTicketList"][0][@"CurrencyCode"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"Currency"] isEqualToString:@"Euro2"], @"Wrong value for Currency in element 1: %@", tickets[0][@"ServiceTicketList"][1][@"Currency"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"CurrencyCode"] isEqualToString:@"EUR2"], @"Wrong value for CurrencyCode in element 1: %@", tickets[0][@"ServiceTicketList"][1][@"CurrencyCode"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"Name"] isEqualToString:@"Ticket1"], @"Wrong value for Name in element 0: %@", tickets[0][@"Name"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"Name"] isEqualToString:@"Ticket2"], @"Wrong value for Name in element 1: %@", tickets[0][@"ServiceTicketList"][1][@"Name"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"DescriptionList"] count] == 2, @"Wrong number of descriptions parsed for element 0: %d", [tickets[0][@"ServiceTicketList"][0][@"DescriptionList"] count]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"DescriptionList"][0][@"Type"] isEqualToString:@"generalDescription"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"DescriptionList"][0][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"DescriptionList"][1][@"Type"] isEqualToString:@"generalDescription"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"DescriptionList"][1][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"DescriptionList"][0][@"Description"] isEqualToString:@"Description 11"], @"Wrong Description field: %@", tickets[0][@"ServiceTicketList"][0][@"DescriptionList"][0][@"Description"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"DescriptionList"][1][@"Description"] isEqualToString:@"Description 12"], @"Wrong Description field: %@", tickets[0][@"ServiceTicketList"][0][@"DescriptionList"][1][@"Description"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"ImageList"] count] == 3, @"Wrong number of images parsed for element 0: %d", [tickets[0][@"ServiceTicketList"][0][@"ImageList"] count]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"ImageList"][0][@"Type"] isEqualToString:@"S"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"ImageList"][0][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"ImageList"][1][@"Type"] isEqualToString:@"S"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"ImageList"][1][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"ImageList"][2][@"Type"] isEqualToString:@"S"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"ImageList"][2][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"ImageList"][0][@"Url"] isEqualToString:@"Image11"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"ImageList"][0][@"Url"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"ImageList"][1][@"Url"] isEqualToString:@"Image12"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"ImageList"][1][@"Url"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][0][@"ImageList"][2][@"Url"] isEqualToString:@"Image13"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][0][@"ImageList"][2][@"Url"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"DescriptionList"] count] == 2, @"Wrong number of descriptions parsed for element 1: %d", [tickets[0][@"ServiceTicketList"][1][@"ServiceTicketList"][1][@"DescriptionList"] count]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"DescriptionList"][0][@"Type"] isEqualToString:@"generalDescription"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"DescriptionList"][0][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"DescriptionList"][1][@"Type"] isEqualToString:@"generalDescription"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"DescriptionList"][1][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"DescriptionList"][0][@"Description"] isEqualToString:@"Description 21"], @"Wrong Description field: %@", tickets[0][@"ServiceTicketList"][1][@"DescriptionList"][0][@"Description"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"DescriptionList"][1][@"Description"] isEqualToString:@"Description 22"], @"Wrong Description field: %@", tickets[0][@"ServiceTicketList"][1][@"DescriptionList"][1][@"Description"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"ImageList"] count] == 3, @"Wrong number of images parsed for element 1: %d", [tickets[0][@"ServiceTicketList"][1][@"ImageList"] count]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"ImageList"][0][@"Type"] isEqualToString:@"S"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][0][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"ImageList"][1][@"Type"] isEqualToString:@"S"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][1][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"ImageList"][2][@"Type"] isEqualToString:@"S"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][2][@"Type"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"ImageList"][0][@"Url"] isEqualToString:@"Image21"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][0][@"Url"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"ImageList"][1][@"Url"] isEqualToString:@"Image22"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][1][@"Url"]);
+    STAssertTrue([tickets[@"ServiceTicketList"][1][@"ImageList"][2][@"Url"] isEqualToString:@"Image23"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][2][@"Url"]);
+}
+
+/*-(void)testTicketAvailXmlStringAlt {
     NSArray *tickets = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketAvailXmlString lookingFor:@"" usingDescriptionMap:_ticketAvailMapAlt];
     STAssertTrue([tickets count] == 1, @"Wrong number of objects parsed. Should be 1, and it is %d", [tickets count]);
     STAssertTrue([tickets[0][@"TotalItems"] isEqualToString:@"27"], @"Wrong value for TotalItems: %@", tickets[0][@"TotalItems"]);
@@ -271,10 +313,11 @@
     STAssertTrue([tickets[0][@"ServiceTicketList"][1][@"ImageList"][0][@"Url"] isEqualToString:@"Image21"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][0][@"Url"]);
     STAssertTrue([tickets[0][@"ServiceTicketList"][1][@"ImageList"][1][@"Url"] isEqualToString:@"Image22"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][1][@"Url"]);
     STAssertTrue([tickets[0][@"ServiceTicketList"][1][@"ImageList"][2][@"Url"] isEqualToString:@"Image23"], @"Wrong Type field: %@", tickets[0][@"ServiceTicketList"][1][@"ImageList"][2][@"Url"]);
-}
+}*/
 
 -(void)testTicketClassificationListXmlString {
-    NSArray *classification = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketClassificationListXmlString lookingFor:@"Classification" usingDescriptionMap:_ticketClassificationListMap];
+    id classification = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketClassificationListXmlString lookingFor:@"Classification" usingDescriptionMap:_ticketClassificationListMap];
+    STAssertTrue([classification isKindOfClass:[NSArray class]], @"Wrong type returned from TuiXmlReader");
     STAssertTrue([classification count] == 9, @"Wrong number of elements parsed. Should be 9, and it is %d", [classification count]);
     STAssertTrue([classification[0][@"Code"] isEqualToString:@"CULTU"], @"Wrong value for Code in element 1: %@", classification[0][@"Code"]);
     STAssertTrue([classification[0][@"Name"] isEqualToString:@"Culture Museums"], @"Wrong value for Name in element 1: %@", classification[0][@"Name"]);
@@ -297,6 +340,31 @@
 }
 
 -(void)testTicketClassificationListXmlStringAlt {
+    id classification = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketClassificationListXmlString lookingFor:@"" usingDescriptionMap:_ticketClassificationListMapAlt];
+    STAssertTrue([classification isKindOfClass:[NSDictionary class]], @"Wrong type returned from TuiXmlReader");
+    STAssertTrue([classification[@"TotalItems"] isEqualToString:@"9"], @"Wrong value for TotalItems: %@", classification[0][@"TotalItems"]);
+    STAssertTrue([classification[@"ClassificationList"] count] == 9, @"Wrong number of categories parsed. Should be 9, and it is %d",[classification[0][@"ClassificationList"] count]);
+    STAssertTrue([classification[@"ClassificationList"][0][@"Code"] isEqualToString:@"CULTU"], @"Wrong value for Code in element 1: %@", classification[0][@"ClassificationList"][0][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][0][@"Name"] isEqualToString:@"Culture Museums"], @"Wrong value for Name in element 1: %@", classification[0][@"ClassificationList"][0][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][1][@"Code"] isEqualToString:@"FD"], @"Wrong value for Code in element 2: %@", classification[0][@"ClassificationList"][1][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][1][@"Name"] isEqualToString:@"Full Day"], @"Wrong value for Name in element 2: %@", classification[0][@"ClassificationList"][1][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][2][@"Code"] isEqualToString:@"FOOD"], @"Wrong value for Code in element 3: %@", classification[0][@"ClassificationList"][2][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][2][@"Name"] isEqualToString:@"Food Nightlife"], @"Wrong value for Name in element 3: %@", classification[0][@"ClassificationList"][2][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][3][@"Code"] isEqualToString:@"HD"], @"Wrong value for Code in element 4: %@", classification[0][@"ClassificationList"][3][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][3][@"Name"] isEqualToString:@"In the morning"], @"Wrong value for Name in element 4: %@", classification[0][@"ClassificationList"][3][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][4][@"Code"] isEqualToString:@"MD"], @"Wrong value for Code in element 5: %@", classification[0][@"ClassificationList"][4][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][4][@"Name"] isEqualToString:@"Multi Day Services"], @"Wrong value for Name in element 5: %@", classification[0][@"ClassificationList"][4][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][5][@"Code"] isEqualToString:@"OUTAC"], @"Wrong value for Code in element 6: %@", classification[0][@"ClassificationList"][5][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][5][@"Name"] isEqualToString:@"Outdoor Adventure"], @"Wrong value for Name in element 6: %@", classification[0][@"ClassificationList"][5][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][6][@"Code"] isEqualToString:@"PARTE"], @"Wrong value for Code in element 7: %@", classification[0][@"ClassificationList"][6][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][6][@"Name"] isEqualToString:@"Theme Aquatic Parks"], @"Wrong value for Name in element 7: %@", classification[0][@"ClassificationList"][6][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][7][@"Code"] isEqualToString:@"SHOW"], @"Wrong value for Code in element 8: %@", classification[0][@"ClassificationList"][7][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][7][@"Name"] isEqualToString:@"Shows and Events"], @"Wrong value for Name in element 8: %@", classification[0][@"ClassificationList"][7][@"Name"]);
+    STAssertTrue([classification[@"ClassificationList"][8][@"Code"] isEqualToString:@"SIGHT"], @"Wrong value for Code in element 9: %@", classification[0][@"ClassificationList"][8][@"Code"]);
+    STAssertTrue([classification[@"ClassificationList"][8][@"Name"] isEqualToString:@"Sightseeing Tours"], @"Wrong value for Name in element 9: %@", classification[0][@"ClassificationList"][8][@"Name"]);
+}
+
+/*-(void)testTicketClassificationListXmlStringAlt {
     NSArray *classification = [[TuiXmlReader sharedInstance] readObjectsFromXmlString:_ticketClassificationListXmlString lookingFor:@"" usingDescriptionMap:_ticketClassificationListMapAlt];
     STAssertTrue([classification count] == 1, @"Wrong number of elements parsed. Should be 1, and it is %d", [classification count]);
     STAssertTrue([classification[0][@"TotalItems"] isEqualToString:@"9"], @"Wrong value for TotalItems: %@", classification[0][@"TotalItems"]);
@@ -319,7 +387,7 @@
     STAssertTrue([classification[0][@"ClassificationList"][7][@"Name"] isEqualToString:@"Shows and Events"], @"Wrong value for Name in element 8: %@", classification[0][@"ClassificationList"][7][@"Name"]);
     STAssertTrue([classification[0][@"ClassificationList"][8][@"Code"] isEqualToString:@"SIGHT"], @"Wrong value for Code in element 9: %@", classification[0][@"ClassificationList"][8][@"Code"]);
     STAssertTrue([classification[0][@"ClassificationList"][8][@"Name"] isEqualToString:@"Sightseeing Tours"], @"Wrong value for Name in element 9: %@", classification[0][@"ClassificationList"][8][@"Name"]);
-}
+}*/
 
 -(void)testParseHotelsFromAtlas {
     //get HotelListRQ
