@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		760C352F1760835F0026BAAE /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
-		7650CEC817674AAA005CFE85 /* TuiXmlManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */; };
-		7650CEC917674AC3005CFE85 /* TuiDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */; };
-		7650CECA17674AC6005CFE85 /* TuiRandomIdsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B649BD175603CB00B415CD /* TuiRandomIdsTest.m */; };
-		7650CECB17674AD1005CFE85 /* TuiXmlReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */; };
 		7650CECE17675B91005CFE85 /* TuiDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7650CECD17675B91005CFE85 /* TuiDictionaryTests.m */; };
+		7657F7C71862F62A001C9736 /* TuiParametrizedXmlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 766712251721264700474484 /* TuiParametrizedXmlTests.m */; };
+		7657F7C81862F62A001C9736 /* TuiDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF14781727F2A700699E42 /* TuiDateFormatterTests.m */; };
+		7657F7C91862F62A001C9736 /* TuiXmlManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76AF147B1727F50400699E42 /* TuiXmlManagerTests.m */; };
+		7657F7CA1862F62A001C9736 /* TuiXmlReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBF6172E8D8D009B1800 /* TuiXmlReaderTests.m */; };
+		7657F7CB1862F62A001C9736 /* TuiRandomIdsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B649BD175603CB00B415CD /* TuiRandomIdsTest.m */; };
 		765AEBF0172E7C73009B1800 /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 765AEBEF172E7C73009B1800 /* RXMLElement.m */; };
 		765AEBF2172E7CC1009B1800 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF1172E7CC1009B1800 /* libz.dylib */; };
 		765AEBF4172E7CDD009B1800 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765AEBF3172E7CDD009B1800 /* libxml2.dylib */; };
@@ -453,15 +453,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7657F7C91862F62A001C9736 /* TuiXmlManagerTests.m in Sources */,
 				7667122D172527FA00474484 /* NSString+Tui.m in Sources */,
 				76AF147D1728041D00699E42 /* NSDictionary+Tui.m in Sources */,
+				7657F7C71862F62A001C9736 /* TuiParametrizedXmlTests.m in Sources */,
+				7657F7CB1862F62A001C9736 /* TuiRandomIdsTest.m in Sources */,
 				76AF147E1728042000699E42 /* NSObject+Tui.m in Sources */,
-				760C352F1760835F0026BAAE /* TuiParametrizedXmlTests.m in Sources */,
-				7650CEC817674AAA005CFE85 /* TuiXmlManagerTests.m in Sources */,
-				7650CEC917674AC3005CFE85 /* TuiDateFormatterTests.m in Sources */,
-				7650CECA17674AC6005CFE85 /* TuiRandomIdsTest.m in Sources */,
-				7650CECB17674AD1005CFE85 /* TuiXmlReaderTests.m in Sources */,
 				7650CECE17675B91005CFE85 /* TuiDictionaryTests.m in Sources */,
+				7657F7C81862F62A001C9736 /* TuiDateFormatterTests.m in Sources */,
+				7657F7CA1862F62A001C9736 /* TuiXmlReaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

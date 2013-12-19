@@ -42,17 +42,21 @@
                                    @"Name":@"Palma",
                                    @"#value":@"CRAP"
                                    },
-                           @"ZoneList":@[@{@"zone":@{@"@code":@"01",
-                                                     @"Name":@"Magaluf"}},
-                                         @{@"zone":@{@"@code":@"02",
-                                                     @"Name":@"Ses Figueres"}},
-                                         @{@"zone":@{@"@code":@"03",
-                                                     @"Name":@"Sa Calobra"}}
+                           @"ZoneList":@[@{@"zone":@[@{@"@code":@"01",
+                                                       @"Name":@"Magaluf"},
+                                                    @{@"@code":@"02",
+                                                      @"Name":@"Ses Figueres"},
+                                                    @{@"@code":@"03",
+                                                      @"Name":@"Sa Calobra"}
+                                                     ]
+                                           }
                                          ],
-                           @"#list":@[@{@"Classification":@{@"code":@"C1",
-                                                            @"#value":@"Class1"}},
-                                      @{@"Classification":@{@"code":@"C2",
-                                                            @"#value":@"Class2"}}
+                           @"#list":@[@{@"Classification":@[@{@"code":@"C1",
+                                                              @"#value":@"Class1"},
+                                                            @{@"code":@"C2",
+                                                              @"#value":@"Class2"}
+                                                            ]
+                                        }
                                       ]
                            }
                    };
@@ -83,7 +87,14 @@
             STFail(@"#list key was not followed by NSArray");
         for (NSDictionary *item in (NSArray *)value) {
             for (NSString *innerKey in item) {
-                [self checkNodeWithKey:innerKey value:item[innerKey] andXmlString:xmlString];
+                if (![item[innerKey] isKindOfClass:[NSArray class]])
+                    STFail(@"Item in #list is not an array");
+                else {
+                    for (NSDictionary *listItem in (NSArray *)item[innerKey]) {
+                        [self checkNodeWithKey:innerKey value:listItem andXmlString:xmlString];
+                    }
+                }
+                
             }
         }
     } else {
@@ -96,7 +107,14 @@
         } else if ([value isKindOfClass:[NSArray class]]) {
             for (NSDictionary *item in (NSArray *)value) {
                 for (NSString *innerKey in item) {
-                    [self checkNodeWithKey:innerKey value:item[innerKey] andXmlString:xmlString];
+                    if (![item[innerKey] isKindOfClass:[NSArray class]])
+                        STFail(@"Item in #list is not an array");
+                    else {
+                        for (NSDictionary *listItem in (NSArray *)item[innerKey]) {
+                            [self checkNodeWithKey:innerKey value:listItem andXmlString:xmlString];
+                        }
+                    }
+                    
                 }
             }
         } else { //it's a NSDictionary

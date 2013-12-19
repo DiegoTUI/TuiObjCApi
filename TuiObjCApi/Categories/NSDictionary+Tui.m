@@ -66,7 +66,11 @@
             @throw [NSException exceptionWithName:@"TuiInvalidNodeException" reason:@"Invalid node. #list key not followed by a NSArray kind of value" userInfo:nil];
         for (NSDictionary *item in value) {
             for (NSString *innerKey in item) {
-                result = [result stringByAppendingString:[self processNodeWithKey:innerKey andValue:item[innerKey]]];
+                if (![item[innerKey] isKindOfClass:[NSArray class]])
+                    @throw [NSException exceptionWithName:@"TuiInvalidNodeException" reason:@"Invalid node. Item in #list key not followed by a NSArray kind of value" userInfo:nil];
+                for (NSDictionary *innerItem in (NSArray *)item[innerKey]) {
+                    result = [result stringByAppendingString:[self processNodeWithKey:innerKey andValue:innerItem]];
+                }
             }
         }
     }
@@ -74,11 +78,15 @@
         result = [result stringByAppendingString:[NSString stringWithFormat:@"<%@",key]];
         if ([value isKindOfClass:[NSString class]]) {   //"regular" value
             result = [result stringByAppendingString:[NSString stringWithFormat:@">%@",value]];
-        } else if ([value isKindOfClass:[NSArray class]]) { //it's a "key" list
+        } else if ([value isKindOfClass:[NSArray class]]) { //it's a "keyed" list
             result = [result stringByAppendingString:@">\n"];
             for (NSDictionary *item in value) {
                 for (NSString *innerKey in item) {
-                    result = [result stringByAppendingString:[self processNodeWithKey:innerKey andValue:item[innerKey]]];
+                    if (![item[innerKey] isKindOfClass:[NSArray class]])
+                        @throw [NSException exceptionWithName:@"TuiInvalidNodeException" reason:@"Invalid node. Item in #list key not followed by a NSArray kind of value" userInfo:nil];
+                    for (NSDictionary *innerItem in (NSArray *)item[innerKey]) {
+                        result = [result stringByAppendingString:[self processNodeWithKey:innerKey andValue:innerItem]];
+                    }
                 }
             }
         } else if ([value isKindOfClass:[NSDictionary class]]) { //it's a dictionary

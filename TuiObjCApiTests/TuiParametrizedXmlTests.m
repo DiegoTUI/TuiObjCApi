@@ -71,17 +71,21 @@
                                    @"Name":@"$Destination_Name$",
                                    @"#value":@"$Destination$"
                                    },
-                           @"ZoneList":@[@{@"zone":@{@"@code":@"$ZoneList_code_1$",
-                                                     @"Name":@"$ZoneList_Name_1$"}},
-                                         @{@"zone":@{@"@code":@"$ZoneList_code_2$",
-                                                     @"Name":@"$ZoneList_Name_2$"}},
-                                         @{@"zone":@{@"@code":@"$ZoneList_code_3$",
-                                                     @"Name":@"$ZoneList_Name_3$"}}
+                           @"ZoneList":@[@{@"zone":@[@{@"@code":@"$ZoneList_code_1$",
+                                                       @"Name":@"$ZoneList_Name_1$"},
+                                                     @{@"@code":@"$ZoneList_code_2$",
+                                                       @"Name":@"$ZoneList_Name_2$"},
+                                                     @{@"@code":@"$ZoneList_code_3$",
+                                                       @"Name":@"$ZoneList_Name_3$"}
+                                                     ]
+                                           }
                                    ],
-                           @"#list":@[@{@"Classification":@{@"code":@"$Classification_code_1$",
-                                                            @"#value":@"$Classification_1$"}},
-                                      @{@"Classification":@{@"code":@"$Classification_code_2$",
-                                                            @"#value":@"$Classification_2$"}}
+                           @"#list":@[@{@"Classification":@[@{@"code":@"$Classification_code_1$",
+                                                              @"#value":@"$Classification_1$"},
+                                                            @{@"code":@"$Classification_code_2$",
+                                                              @"#value":@"$Classification_2$"},
+                                                            ]
+                                        }
                                       ]
                            }
                    };
